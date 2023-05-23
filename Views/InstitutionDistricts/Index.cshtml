@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ZaculeuValley.IxchelAdmin.Models.InstitutionDistrict>
+﻿@*@model IEnumerable<ZaculeuValley.IxchelAdmin.Models.InstitutionDistrict>*@
+@model PaginatedList<ZaculeuValley.IxchelAdmin.Models.InstitutionDistrict>
 
 @{
     ViewData["Title"] = "Index";
@@ -9,20 +10,38 @@
 <p>
     <a asp-action="Create">Crear Nuevo</a>
 </p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Busca por nombre: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Buscar"/> |
+            <a asp-action="Index">Regresar a lista completa</a>
+        </p>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                ID District
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "id_desc")
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID ↓</a>
+                }
+                else
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID ↑</a>
+                }
             </th>
-            <th>
+            @*<th>
                 ID Area
-                @*@Html.DisplayNameFor(model => model.IdinstitutionAreaNavigation)*@
+               
             </th>
             <th>
                 ID Institución
-                @*@Html.DisplayNameFor(model => model.IdinstitutionNavigation)*@
-            </th>
+               
+            </th>*@
             <th>
                 Código Área
                 @*@Html.DisplayNameFor(model => model.IdinstitutionNavigation)*@
@@ -33,7 +52,14 @@
                 @*@Html.DisplayNameFor(model => model.DistrictCode)*@
             </th>
             <th>
-                Nombre Distrito
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "name_desc")
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Nombre Distrito ↓</a>
+                }
+                else
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Nombre Distrito ↑</a>
+                }
                 @*@Html.DisplayNameFor(model => model.DistrictName)*@
             </th>
             <th>
@@ -54,12 +80,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.IdinstitutionDistrict)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.IdinstitutionAreaNavigation.IdinstitutionArea)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IdinstitutionNavigation.Idinstitution)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.AreaCode)
             </td>
@@ -85,3 +111,23 @@
 }
     </tbody>
 </table>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Anterior
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Siguiente
+</a>

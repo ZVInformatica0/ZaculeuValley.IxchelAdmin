@@ -8,7 +8,6 @@
     ".NETCoreApp,Version=v7.0": {
       "ZaculeuValley.IxchelAdmin/1.0.0": {
         "dependencies": {
-          "Cashier.EF": "1.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.5",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.6",
@@ -49,30 +48,6 @@
           "lib/netstandard2.0/Azure.Identity.dll": {
             "assemblyVersion": "1.6.0.0",
             "fileVersion": "1.600.22.20503"
-          }
-        }
-      },
-      "Cashier.EF/1.0.2": {
-        "dependencies": {
-          "EntityFramework": "6.2.0",
-          "Z.EntityFramework.Plus.EF6": "1.7.11"
-        },
-        "runtime": {
-          "lib/Cashier.EF.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "EntityFramework/6.2.0": {
-        "runtime": {
-          "lib/net45/EntityFramework.SqlServer.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.2.61023.0"
-          },
-          "lib/net45/EntityFramework.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.2.61023.0"
           }
         }
       },
@@ -2316,14 +2291,6 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0"
         }
-      },
-      "Z.EntityFramework.Plus.EF6/1.7.11": {
-        "runtime": {
-          "lib/net45/Z.EntityFramework.Plus.EF6.dll": {
-            "assemblyVersion": "1.7.11.0",
-            "fileVersion": "1.7.11.0"
-          }
-        }
       }
     }
   },
@@ -2346,20 +2313,6 @@
       "sha512": "sha512-EycyMsb6rD2PK9P0SyibFfEhvWWttdrYhyPF4f41uzdB/44yQlV+2Wehxyg489Rj6gbPvSPgbKq0xsHJBhipZA==",
       "path": "azure.identity/1.6.0",
       "hashPath": "azure.identity.1.6.0.nupkg.sha512"
-    },
-    "Cashier.EF/1.0.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-0lhbVVYaw7wFbad8pA0gLk2dGYRjFbWFBS8VmC4MJO+PGyJvRRcID4YMqnxWgU/uaZi2AWpuxBPluRWBf7SwLg==",
-      "path": "cashier.ef/1.0.2",
-      "hashPath": "cashier.ef.1.0.2.nupkg.sha512"
-    },
-    "EntityFramework/6.2.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ptGyXOf26qLrtn+2doAmylIlCxOnBJANwlyyLrXDmqIk9O18IzLWHyxDwwAyhgXkxmbiaA0WNpRy67WRReInBw==",
-      "path": "entityframework/6.2.0",
-      "hashPath": "entityframework.6.2.0.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",
@@ -3620,13 +3573,6 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
-    },
-    "Z.EntityFramework.Plus.EF6/1.7.11": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-0wIhpBSu9BVZxhsIIRuEurtznIqm+gPPLjrqrP+P7V1OB2UMej6DMB4scJvN0eClplp0aTNMxF1qR0rtyuAD6g==",
-      "path": "z.entityframework.plus.ef6/1.7.11",
-      "hashPath": "z.entityframework.plus.ef6.1.7.11.nupkg.sha512"
     }
   }
 }

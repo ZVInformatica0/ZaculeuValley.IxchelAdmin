@@ -1,23 +1,62 @@
-﻿@model IEnumerable<ZaculeuValley.IxchelAdmin.Models.Facility>
+﻿@*@model IEnumerable<ZaculeuValley.IxchelAdmin.Models.Facility>*@
+
+@model PaginatedList<ZaculeuValley.IxchelAdmin.Models.Facility>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Índice</h1>
+<h1>Instalaciones</h1>
 
 <p>
     <a asp-action="Create">Crear Nuevo</a>
 </p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Busca por nombre: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Buscar" /> |
+            <a asp-action="Index">Regresar a lista completa</a>
+        </p>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "id_desc")
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID ↓</a>
+                }
+                else
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID ↑</a>
+                }
+            <th>
+                ID Institución
+                @*@Html.DisplayNameFor(model => model.IdinstitutionNavigation)*@
+            </th>
             <th>
                 Código Instalación
                 @*@/*Html.DisplayNameFor(model => model.FacilityCode)*/*@
             </th>
             <th>
-                Nombre Instalación
+                Código Tipo Instalación
+                @*@Html.DisplayNameFor(model => model.FacilityName)*@
+            </th>
+            
+            </th>
+            <th>
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "name_desc")
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Nombre Instalación ↓</a>
+                }
+                else
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Nombre Instalación ↑</a>
+                }
                 @*@Html.DisplayNameFor(model => model.FacilityName)*@
             </th>
             <th>
@@ -44,10 +83,7 @@
                 ID Instalación
                 @*@Html.DisplayNameFor(model => model.IdfacilityTypeNavigation)*@
             </th>
-            <th>
-                ID Institución
-                @*@Html.DisplayNameFor(model => model.IdinstitutionNavigation)*@
-            </th>
+            
             <th></th>
         </tr>
     </thead>
@@ -55,8 +91,24 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Idfacility)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idinstitution)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.FacilityCode)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdfacilityType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AreaCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DistrictCode)
+            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.FacilityName)
             </td>
@@ -66,21 +118,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Deleted)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AreaCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DistrictCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IddistrictNavigation.IdinstitutionDistrict)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdfacilityTypeNavigation.IdfacilityType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdinstitutionNavigation.Idinstitution)
-            </td>
+           
+            
+            
+            
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Idfacility">Editar</a> |
                 <a asp-action="Details" asp-route-id="@item.Idfacility">Detalles</a>@* |
@@ -90,3 +131,24 @@
 }
     </tbody>
 </table>
+
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Anterior
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Siguiente
+</a>

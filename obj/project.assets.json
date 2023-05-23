@@ -46,38 +46,6 @@
           }
         }
       },
-      "Cashier.EF/1.0.2": {
-        "type": "package",
-        "dependencies": {
-          "EntityFramework": "6.2.0",
-          "Z.EntityFramework.Plus.EF6": "1.7.11"
-        },
-        "compile": {
-          "lib/Cashier.EF.dll": {}
-        },
-        "runtime": {
-          "lib/Cashier.EF.dll": {}
-        }
-      },
-      "EntityFramework/6.2.0": {
-        "type": "package",
-        "compile": {
-          "lib/net45/EntityFramework.SqlServer.dll": {
-            "related": ".xml"
-          },
-          "lib/net45/EntityFramework.dll": {
-            "related": ".SqlServer.xml;.xml"
-          }
-        },
-        "runtime": {
-          "lib/net45/EntityFramework.SqlServer.dll": {
-            "related": ".xml"
-          },
-          "lib/net45/EntityFramework.dll": {
-            "related": ".SqlServer.xml;.xml"
-          }
-        }
-      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -3722,15 +3690,6 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
-      },
-      "Z.EntityFramework.Plus.EF6/1.7.11": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Z.EntityFramework.Plus.EF6.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Z.EntityFramework.Plus.EF6.dll": {}
-        }
       }
     }
   },
@@ -3771,49 +3730,6 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
-      ]
-    },
-    "Cashier.EF/1.0.2": {
-      "sha512": "0lhbVVYaw7wFbad8pA0gLk2dGYRjFbWFBS8VmC4MJO+PGyJvRRcID4YMqnxWgU/uaZi2AWpuxBPluRWBf7SwLg==",
-      "type": "package",
-      "path": "cashier.ef/1.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "cashier.ef.1.0.2.nupkg.sha512",
-        "cashier.ef.nuspec",
-        "lib/Cashier.EF.dll",
-        "lib/Cashier.EF.dll.config"
-      ]
-    },
-    "EntityFramework/6.2.0": {
-      "sha512": "ptGyXOf26qLrtn+2doAmylIlCxOnBJANwlyyLrXDmqIk9O18IzLWHyxDwwAyhgXkxmbiaA0WNpRy67WRReInBw==",
-      "type": "package",
-      "path": "entityframework/6.2.0",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "content/net40/App.config.transform",
-        "content/net40/Web.config.transform",
-        "entityframework.6.2.0.nupkg.sha512",
-        "entityframework.nuspec",
-        "lib/net40/EntityFramework.SqlServer.dll",
-        "lib/net40/EntityFramework.SqlServer.xml",
-        "lib/net40/EntityFramework.dll",
-        "lib/net40/EntityFramework.xml",
-        "lib/net45/EntityFramework.SqlServer.dll",
-        "lib/net45/EntityFramework.SqlServer.xml",
-        "lib/net45/EntityFramework.dll",
-        "lib/net45/EntityFramework.xml",
-        "tools/EntityFramework.PowerShell.Utility.dll",
-        "tools/EntityFramework.PowerShell.dll",
-        "tools/EntityFramework.psd1",
-        "tools/EntityFramework.psm1",
-        "tools/about_EntityFramework.help.txt",
-        "tools/init.ps1",
-        "tools/install.ps1",
-        "tools/migrate.exe"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -10739,24 +10655,10 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
-    },
-    "Z.EntityFramework.Plus.EF6/1.7.11": {
-      "sha512": "0wIhpBSu9BVZxhsIIRuEurtznIqm+gPPLjrqrP+P7V1OB2UMej6DMB4scJvN0eClplp0aTNMxF1qR0rtyuAD6g==",
-      "type": "package",
-      "path": "z.entityframework.plus.ef6/1.7.11",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net40/Z.EntityFramework.Plus.EF6.dll",
-        "lib/net45/Z.EntityFramework.Plus.EF6.dll",
-        "z.entityframework.plus.ef6.1.7.11.nupkg.sha512",
-        "z.entityframework.plus.ef6.nuspec"
-      ]
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Cashier.EF >= 1.0.2",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.5",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.5",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 7.0.6",
@@ -10811,10 +10713,6 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
-          "Cashier.EF": {
-            "target": "Package",
-            "version": "[1.0.2, )"
-          },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[7.0.5, )"
@@ -10862,26 +10760,6 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"Cashier.EF 1.0.2\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
-      "libraryId": "Cashier.EF",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "El paquete \"EntityFramework 6.2.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
-      "libraryId": "EntityFramework",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
       "message": "El paquete \"PagedList 1.17.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
       "libraryId": "PagedList",
       "targetGraphs": [
@@ -10894,16 +10772,6 @@
       "warningLevel": 1,
       "message": "El paquete \"PagedList.Mvc 4.5.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
       "libraryId": "PagedList.Mvc",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "El paquete \"Z.EntityFramework.Plus.EF6 1.7.11\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
-      "libraryId": "Z.EntityFramework.Plus.EF6",
       "targetGraphs": [
         "net7.0"
       ]

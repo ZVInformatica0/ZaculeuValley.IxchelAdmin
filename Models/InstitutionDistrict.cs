@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ZaculeuValley.IxchelAdmin.Models;
 
@@ -25,11 +26,16 @@ public partial class InstitutionDistrict
     /// <summary>
     /// Internal code for table Institution District
     /// </summary>
+    /// 
+    [Required(ErrorMessage = "Por favor ingrese el código del Distrito.")]
     public int? DistrictCode { get; set; }
 
     /// <summary>
     /// Name for table Institution District
     /// </summary>
+    /// 
+    [StringLength(50, ErrorMessage = "El nombre del Distrito debe tener como máximo 50 caracteres.")]
+    [Required(ErrorMessage = "Por favor ingrese el nombre del Distrito.")]
     public string DistrictName { get; set; } = null!;
 
     public bool Enabled { get; set; }

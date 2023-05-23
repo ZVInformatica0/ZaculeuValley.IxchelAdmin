@@ -19,11 +19,57 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
         }
 
         // GET: InstitutionDistricts
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string currentFilter, string searchString, int? pageNumber)
         {
-            var ixchelWebpruebasContext = _context.InstitutionDistricts.Include(i => i.IdinstitutionAreaNavigation).Include(i => i.IdinstitutionNavigation);
-            return View(await ixchelWebpruebasContext.Where(i => i.Deleted == false).ToListAsync());
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["CurrentFilter"] = searchString;
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["IdSortParm"] = sortOrder == "Id" ? "id_desc" : "Id";
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            IQueryable<InstitutionDistrict> districts = _context.InstitutionDistricts.Where(i => i.Deleted == false);
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                //institutions = institutions.Where(i => i.InstitutionName.Contains(searchString)).ToList();
+                districts = districts.Where(i => i.DistrictName.Contains(searchString)
+                                       && i.Deleted == false);
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    districts = districts.OrderByDescending(i => i.DistrictName);
+                    break;
+                case "Id":
+                    districts = districts.OrderBy(i => i.IdinstitutionDistrict);
+                    break;
+                case "id_desc":
+                    districts = districts.OrderByDescending(i => i.IdinstitutionDistrict);
+                    break;
+                default:
+                    districts = districts.OrderBy(i => i.DistrictName);
+                    break;
+            }
+
+            int pageSize = 5;
+            var pagedInstitutionDistricts = await PaginatedList<InstitutionDistrict>.CreateAsync(districts, pageNumber ?? 1, pageSize);
+            return View(pagedInstitutionDistricts);
         }
+
+        //public async Task<IActionResult> Index()
+        //{
+        //    var ixchelWebpruebasContext = _context.InstitutionDistricts.Include(i => i.IdinstitutionAreaNavigation).Include(i => i.IdinstitutionNavigation);
+        //    return View(await ixchelWebpruebasContext.Where(i => i.Deleted == false).ToListAsync());
+        //}
 
         // GET: InstitutionDistricts/Details/5
         public async Task<IActionResult> Details(int? id)

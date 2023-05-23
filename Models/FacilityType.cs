@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ZaculeuValley.IxchelAdmin.Models;
 
@@ -18,11 +19,16 @@ public partial class FacilityType
     /// <summary>
     /// Internal code for Facility Type (diff. each institution)
     /// </summary>
+    /// 
+    [Required(ErrorMessage = "Por favor ingrese el código para el tipo de instalación.")]
     public string? FacilityTypeCode { get; set; }
 
     /// <summary>
     /// Facility type name for table FacilityTypeName
     /// </summary>
+    /// 
+    [StringLength(50, ErrorMessage = "El nombre del tipo de instalación debe tener como máximo 50 caracteres.")]
+    [Required(ErrorMessage = "Por favor ingrese el nombre del tipo de instalación.")]
     public string FacilityTypeName { get; set; } = null!;
 
     /// <summary>

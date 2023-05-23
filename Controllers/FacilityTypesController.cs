@@ -19,10 +19,59 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
         }
 
         // GET: FacilityTypes
-        public async Task<IActionResult> Index()
+        //public async Task<IActionResult> Index()
+        //{
+        //    var ixchelWebpruebasContext = _context.FacilityTypes.Include(f => f.IdinstitutionNavigation);
+        //    return View(await ixchelWebpruebasContext.Where(i => i.Deleted == false).ToListAsync());
+        //}
+
+        public async Task<IActionResult> Index(string sortOrder, string currentFilter, string searchString, int? pageNumber)
         {
-            var ixchelWebpruebasContext = _context.FacilityTypes.Include(f => f.IdinstitutionNavigation);
-            return View(await ixchelWebpruebasContext.Where(i => i.Deleted == false).ToListAsync());
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["CurrentFilter"] = searchString;
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["IdSortParm"] = sortOrder == "Id" ? "id_desc" : "Id";
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            //var institutions = await _context.Institutions.Where(i => i.Deleted == false).ToListAsync();
+            IQueryable<FacilityType> facilitytypes = _context.FacilityTypes.Where(i => i.Deleted == false);
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                //institutions = institutions.Where(i => i.InstitutionName.Contains(searchString)).ToList();
+                facilitytypes = facilitytypes.Where(i => i.FacilityTypeName.Contains(searchString)
+                                       && i.Deleted == false);
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    facilitytypes = facilitytypes.OrderByDescending(i => i.FacilityTypeName);
+                    break;
+                case "Id":
+                    facilitytypes = facilitytypes.OrderBy(i => i.IdfacilityType);
+                    break;
+                case "id_desc":
+                    facilitytypes = facilitytypes.OrderByDescending(i => i.Idinstitution);
+                    break;
+                default:
+                    facilitytypes = facilitytypes.OrderBy(i => i.IdfacilityType);
+                    break;
+            }
+
+            int pageSize = 5;
+            var pagedFacilityTypes = await PaginatedList<FacilityType>.CreateAsync(facilitytypes, pageNumber ?? 1, pageSize);
+
+            return View(pagedFacilityTypes);
+            //int pageSize = 3;
+            //return View(await PaginatedList<Institution>.CreateAsync(institutions, pageNumber ?? 1, pageSize));
         }
 
         // GET: FacilityTypes/Details/5

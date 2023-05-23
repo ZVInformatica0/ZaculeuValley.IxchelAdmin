@@ -550,7 +550,3 @@ D:\ZV\ZaculeuValley.IxchelAdmin\obj\Debug\net7.0\ZaculeuValley.IxchelAdmin.genru
 D:\ZV\ZaculeuValley.IxchelAdmin\obj\Debug\net7.0\ref\ZaculeuValley.IxchelAdmin.dll
 D:\ZV\ZaculeuValley.IxchelAdmin\bin\Debug\net7.0\PagedList.dll
 D:\ZV\ZaculeuValley.IxchelAdmin\bin\Debug\net7.0\PagedList.Mvc.dll
-D:\ZV\ZaculeuValley.IxchelAdmin\bin\Debug\net7.0\Cashier.EF.dll
-D:\ZV\ZaculeuValley.IxchelAdmin\bin\Debug\net7.0\EntityFramework.SqlServer.dll
-D:\ZV\ZaculeuValley.IxchelAdmin\bin\Debug\net7.0\EntityFramework.dll
-D:\ZV\ZaculeuValley.IxchelAdmin\bin\Debug\net7.0\Z.EntityFramework.Plus.EF6.dll

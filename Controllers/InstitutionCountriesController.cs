@@ -19,14 +19,61 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
         }
 
         // GET: InstitutionCountries
-        public async Task<IActionResult> Index()
-        {
-            var ixchelWebpruebasContext = _context.InstitutionCountries.Include(i => i.IdinstitutionNavigation);
-            return View(await ixchelWebpruebasContext.Where(i => i.Deleted == false).ToListAsync());
-        }
 
-        // GET: InstitutionCountries/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Index(string sortOrder, string currentFilter, string searchString, int? pageNumber)
+        {
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["CurrentFilter"] = searchString;
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["IdSortParm"] = sortOrder == "Id" ? "id_desc" : "Id";
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            //var institutions = await _context.Institutions.Where(i => i.Deleted == false).ToListAsync();
+            IQueryable<InstitutionCountry> countries = _context.InstitutionCountries.Where(i => i.Deleted == false);
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                //institutions = institutions.Where(i => i.InstitutionName.Contains(searchString)).ToList();
+                countries = countries.Where(i => i.CountryName.Contains(searchString)
+                                       && i.Deleted == false);
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    countries = countries.OrderByDescending(i => i.CountryName);
+                    break;
+                case "Id":
+                    countries = countries.OrderBy(i => i.IdinstitutionCountry);
+                    break;
+                case "id_desc":
+                    countries = countries.OrderByDescending(i => i.IdinstitutionCountry);
+                    break;
+                default:
+                    countries = countries.OrderBy(i => i.CountryName);
+                    break;
+            }
+
+            int pageSize = 5;
+            var pagedInstitutionCountries = await PaginatedList<InstitutionCountry>.CreateAsync(countries, pageNumber ?? 1, pageSize);
+
+            return View(pagedInstitutionCountries);
+        }
+            //public async Task<IActionResult> Index()
+            //{
+            //    var ixchelWebpruebasContext = _context.InstitutionCountries.Include(i => i.IdinstitutionNavigation);
+            //    return View(await ixchelWebpruebasContext.Where(i => i.Deleted == false).ToListAsync());
+            //}
+
+            // GET: InstitutionCountries/Details/5
+            public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.InstitutionCountries == null)
             {

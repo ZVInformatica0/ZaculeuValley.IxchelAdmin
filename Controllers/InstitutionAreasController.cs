@@ -19,10 +19,56 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
         }
 
         // GET: InstitutionAreas
-        public async Task<IActionResult> Index()
+        //public async Task<IActionResult> Index()
+        //{
+        //    var ixchelWebpruebasContext = _context.InstitutionAreas.Include(i => i.IdinstitutionCountryNavigation).Include(i => i.IdinstitutionNavigation);
+        //    return View(await ixchelWebpruebasContext.Where(i => i.Deleted == false).ToListAsync());
+        //}
+
+        public async Task<IActionResult> Index(string sortOrder, string currentFilter, string searchString, int? pageNumber)
         {
-            var ixchelWebpruebasContext = _context.InstitutionAreas.Include(i => i.IdinstitutionCountryNavigation).Include(i => i.IdinstitutionNavigation);
-            return View(await ixchelWebpruebasContext.Where(i => i.Deleted == false).ToListAsync());
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["CurrentFilter"] = searchString;
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["IdSortParm"] = sortOrder == "Id" ? "id_desc" : "Id";
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            IQueryable<InstitutionArea> areas = _context.InstitutionAreas.Where(i => i.Deleted == false);
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                //institutions = institutions.Where(i => i.InstitutionName.Contains(searchString)).ToList();
+                areas = areas.Where(i => i.AreaName.Contains(searchString)
+                                       && i.Deleted == false);
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    areas = areas.OrderByDescending(i => i.AreaName);
+                    break;
+                case "Id":
+                    areas = areas.OrderBy(i => i.IdinstitutionArea);
+                    break;
+                case "id_desc":
+                    areas = areas.OrderByDescending(i => i.IdinstitutionArea);
+                    break;
+                default:
+                    areas = areas.OrderBy(i => i.AreaName);
+                    break;
+            }
+
+            int pageSize = 5;
+            var pagedInstitutionArea = await PaginatedList<InstitutionArea>.CreateAsync(areas, pageNumber ?? 1, pageSize);
+            return View(pagedInstitutionArea);
         }
 
         // GET: InstitutionAreas/Details/5
