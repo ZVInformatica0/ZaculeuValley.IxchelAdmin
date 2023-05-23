@@ -1,0 +1,60 @@
+﻿@model ZaculeuValley.IxchelAdmin.Models.InstitutionArea
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <h4>Área</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Código Área
+            @*@Html.DisplayNameFor(model => model.AreaCode)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AreaCode)
+        </dd>
+        <dt class = "col-sm-2">
+            Nombre Área
+            @*@Html.DisplayNameFor(model => model.AreaName)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AreaName)
+        </dd>
+        <dt class = "col-sm-2">
+            Hábilitado
+            @*@Html.DisplayNameFor(model => model.Enabled)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Enabled)
+        </dd>
+        <dt class = "col-sm-2">
+            Borrado
+            @*@Html.DisplayNameFor(model => model.Deleted)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Deleted)
+        </dd>
+        <dt class = "col-sm-2">
+            ID País
+            @*@Html.DisplayNameFor(model => model.IdinstitutionCountryNavigation)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdinstitutionCountryNavigation.IdinstitutionCountry)
+        </dd>
+        <dt class = "col-sm-2">
+            ID Intitución
+            @*@Html.DisplayNameFor(model => model.IdinstitutionNavigation)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdinstitutionNavigation.Idinstitution)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdinstitutionArea">Editar</a> |
+    <a asp-action="Index">Regresar a Índice</a>
+</div>

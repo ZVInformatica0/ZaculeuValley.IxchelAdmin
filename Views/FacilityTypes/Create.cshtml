@@ -1,0 +1,54 @@
+﻿@model ZaculeuValley.IxchelAdmin.Models.FacilityType
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Crear</h1>
+
+<h4>Tipo de Instalación</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Idinstitution" class="control-label">Institution</label>
+                <select asp-for="Idinstitution" class ="form-control" asp-items="ViewBag.Idinstitution"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FacilityTypeCode" class="control-label">Código Interno Tipo de Instalación</label>
+                <input asp-for="FacilityTypeCode" class="form-control" />
+                <span asp-validation-for="FacilityTypeCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FacilityTypeName" class="control-label">Nombre del Nuevo Tipo de Instalación</label>
+                <input asp-for="FacilityTypeName" class="form-control" />
+                <span asp-validation-for="FacilityTypeName" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label"> 
+                    Habilitado
+                    <input class="form-check-input" asp-for="Enabled" />
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    Borrado
+                    <input class="form-check-input" asp-for="Deleted" /> 
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar a Índice</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

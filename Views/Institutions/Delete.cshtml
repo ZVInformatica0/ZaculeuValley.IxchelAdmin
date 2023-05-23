@@ -1,0 +1,48 @@
+﻿@model ZaculeuValley.IxchelAdmin.Models.Institution
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Borrar</h1>
+<h3>¿Estás seguro que deseas borrar esta Institución?</h3>
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nombre de la Institución
+            @*@Html.DisplayNameFor(model => model.InstitutionName)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.InstitutionName)
+        </dd>
+        <dt class = "col-sm-2">
+            Código Institución
+            @*@Html.DisplayNameFor(model => model.InstitutionCode)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.InstitutionCode)
+        </dd>
+        <dt class = "col-sm-2">
+            Hábilitado
+            @*@Html.DisplayNameFor(model => model.Enabled)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Enabled)
+        </dd>
+        <dt class = "col-sm-2">
+            Borrado
+            @*@Html.DisplayNameFor(model => model.Deleted)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Deleted)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Idinstitution" />
+        <input type="submit" value="Borrar" class="btn btn-danger" /> |
+        <a asp-action="Index">Regresar a Índice</a>
+    </form>
+</div>

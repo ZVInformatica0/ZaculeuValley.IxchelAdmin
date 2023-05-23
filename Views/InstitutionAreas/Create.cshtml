@@ -1,0 +1,60 @@
+﻿@model ZaculeuValley.IxchelAdmin.Models.InstitutionArea
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Crear</h1>
+
+<h4>Área</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Idinstitution" class="control-label">Institución</label>
+                <select asp-for="Idinstitution" class ="form-control" asp-items="ViewBag.Idinstitution"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdinstitutionCountry" class="control-label">País</label>
+                <select asp-for="IdinstitutionCountry" class ="form-control" asp-items="ViewBag.IdinstitutionCountry"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="AreaCode" class="control-label">Código Área</label>
+                <input asp-for="AreaCode" class="form-control" />
+                <span asp-validation-for="AreaCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AreaName" class="control-label">Nombre Área</label>
+                <input asp-for="AreaName" class="form-control" />
+                <span asp-validation-for="AreaName" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    Hábilitado
+                    <input class="form-check-input" asp-for="Enabled" />
+                </label>
+                <span asp-validation-for="Enabled" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    Borrado
+                    <input class="form-check-input" asp-for="Deleted" />
+                </label>
+                <span asp-validation-for="Deleted" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar a Índice</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

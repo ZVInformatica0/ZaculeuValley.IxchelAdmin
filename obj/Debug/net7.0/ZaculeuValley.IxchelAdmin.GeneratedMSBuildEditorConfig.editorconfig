@@ -1,0 +1,165 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ZaculeuValley.IxchelAdmin
+build_property.RootNamespace = ZaculeuValley.IxchelAdmin
+build_property.ProjectDir = D:\ZV\ZaculeuValley.IxchelAdmin\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\ZV\ZaculeuValley.IxchelAdmin
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/Facilities/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjaWxpdGllc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/Facilities/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjaWxpdGllc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/Facilities/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjaWxpdGllc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/Facilities/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjaWxpdGllc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/Facilities/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjaWxpdGllc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/FacilityTypes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjaWxpdHlUeXBlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/FacilityTypes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjaWxpdHlUeXBlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/FacilityTypes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjaWxpdHlUeXBlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/FacilityTypes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjaWxpdHlUeXBlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/FacilityTypes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjaWxpdHlUeXBlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/InstitutionAreas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dXRpb25BcmVhc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/InstitutionAreas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dXRpb25BcmVhc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/InstitutionAreas/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dXRpb25BcmVhc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/InstitutionAreas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dXRpb25BcmVhc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/InstitutionAreas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dXRpb25BcmVhc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/InstitutionCountries/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dXRpb25Db3VudHJpZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/InstitutionCountries/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dXRpb25Db3VudHJpZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/InstitutionCountries/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dXRpb25Db3VudHJpZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/InstitutionCountries/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dXRpb25Db3VudHJpZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/InstitutionCountries/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dXRpb25Db3VudHJpZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/InstitutionDistricts/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dXRpb25EaXN0cmljdHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/InstitutionDistricts/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dXRpb25EaXN0cmljdHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/InstitutionDistricts/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dXRpb25EaXN0cmljdHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/InstitutionDistricts/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dXRpb25EaXN0cmljdHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/InstitutionDistricts/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dXRpb25EaXN0cmljdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/Institutions/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dXRpb25zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/Institutions/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dXRpb25zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/Institutions/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dXRpb25zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/Institutions/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dXRpb25zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/Institutions/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dXRpb25zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ZV/ZaculeuValley.IxchelAdmin/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-a1f4jek0jg

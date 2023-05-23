@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ZaculeuValley.IxchelAdmin.Models.Institution>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Instituciones</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nombre Institución
+            </th>
+            <th>
+                IDInstitución
+            </th>
+            <th>
+                Código Institución
+            </th>
+            <th>
+                Hábilitado
+            </th>
+            <th>
+                Borrado
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InstitutionName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Idinstitution)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InstitutionCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Enabled)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Deleted)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Idinstitution">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.Idinstitution">Detalles</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="form-inline">
+    <input type="text" class="form-control" id="searchTerm" placeholder="Buscar...">
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</div>

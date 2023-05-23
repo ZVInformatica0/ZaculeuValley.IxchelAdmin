@@ -1,0 +1,75 @@
+﻿@model ZaculeuValley.IxchelAdmin.Models.Facility
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Borrar</h1>
+
+<h3>¿Estás seguro de que quieres eliminar esta Instalación?</h3>
+<div>
+    <h4>Facility</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FacilityCode)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FacilityCode)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FacilityName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FacilityName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Enabled)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Enabled)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Deleted)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Deleted)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AreaCode)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AreaCode)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DistrictCode)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DistrictCode)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IddistrictNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IddistrictNavigation.IdinstitutionDistrict)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdfacilityTypeNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdfacilityTypeNavigation.IdfacilityType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdinstitutionNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdinstitutionNavigation.Idinstitution)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Idfacility" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Regresar a Índice</a>
+    </form>
+</div>

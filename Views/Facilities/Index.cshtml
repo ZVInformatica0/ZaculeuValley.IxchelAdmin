@@ -1,0 +1,92 @@
+﻿@model IEnumerable<ZaculeuValley.IxchelAdmin.Models.Facility>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Índice</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Código Instalación
+                @*@/*Html.DisplayNameFor(model => model.FacilityCode)*/*@
+            </th>
+            <th>
+                Nombre Instalación
+                @*@Html.DisplayNameFor(model => model.FacilityName)*@
+            </th>
+            <th>
+                Hábilitado
+                @*@Html.DisplayNameFor(model => model.Enabled)*@
+            </th>
+            <th>
+                Borrado
+                @*@Html.DisplayNameFor(model => model.Deleted)*@
+            </th>
+            <th>
+                Código Área
+                @*@Html.DisplayNameFor(model => model.AreaCode)*@
+            </th>
+            <th>
+                Código Distrito
+                @*@Html.DisplayNameFor(model => model.DistrictCode)*@
+            </th>
+            <th>
+                ID Distrito
+                @*@Html.DisplayNameFor(model => model.IddistrictNavigation)*@
+            </th>
+            <th>
+                ID Instalación
+                @*@Html.DisplayNameFor(model => model.IdfacilityTypeNavigation)*@
+            </th>
+            <th>
+                ID Institución
+                @*@Html.DisplayNameFor(model => model.IdinstitutionNavigation)*@
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FacilityCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FacilityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Enabled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AreaCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DistrictCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IddistrictNavigation.IdinstitutionDistrict)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdfacilityTypeNavigation.IdfacilityType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdinstitutionNavigation.Idinstitution)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Idfacility">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Idfacility">Detalles</a>@* |
+                <a asp-action="Delete" asp-route-id="@item.Idfacility">Borrar</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

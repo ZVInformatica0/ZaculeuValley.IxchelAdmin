@@ -1,0 +1,67 @@
+﻿@model ZaculeuValley.IxchelAdmin.Models.InstitutionDistrict
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Borrar</h1>
+<h3>¿Estás seguro que deseas borrar este Distrito?</h3>
+<div>
+    <h4>Distrito</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Código Area
+            @*@Html.DisplayNameFor(model => model.AreaCode)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AreaCode)
+        </dd>
+        <dt class = "col-sm-2">
+            Código Distrito
+            @*@Html.DisplayNameFor(model => model.DistrictCode)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DistrictCode)
+        </dd>
+        <dt class = "col-sm-2">
+            Nombre Distrito
+            @*@Html.DisplayNameFor(model => model.DistrictName)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DistrictName)
+        </dd>
+        <dt class = "col-sm-2">
+            Hábilitado
+            @*@Html.DisplayNameFor(model => model.Enabled)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Enabled)
+        </dd>
+        <dt class = "col-sm-2">
+            Borrado
+            @*@Html.DisplayNameFor(model => model.Deleted)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Deleted)
+        </dd>
+       @* <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdinstitutionAreaNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdinstitutionAreaNavigation.IdinstitutionArea)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdinstitutionNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdinstitutionNavigation.Idinstitution)
+        </dd>*@
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdinstitutionDistrict" />
+        <input type="submit" value="Borrar" class="btn btn-danger" /> |
+        <a asp-action="Index">Regresar a Índice</a>
+    </form>
+</div>

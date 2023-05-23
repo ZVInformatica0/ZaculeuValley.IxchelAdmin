@@ -1,0 +1,67 @@
+﻿@model ZaculeuValley.IxchelAdmin.Models.InstitutionCountry
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <h4>País</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Código País
+            @*@Html.DisplayNameFor(model => model.CountryCode)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CountryCode)
+        </dd>
+        <dt class = "col-sm-2">
+            Nombre País
+            @*@Html.DisplayNameFor(model => model.CountryName)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CountryName)
+        </dd>
+        <dt class = "col-sm-2">
+            Prefijo Telefónico
+            @*@Html.DisplayNameFor(model => model.CountryPhoneCode)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CountryPhoneCode)
+        </dd>
+        <dt class = "col-sm-2">
+            Dominio
+            @*@Html.DisplayNameFor(model => model.CountryDomainName)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CountryDomainName)
+        </dd>
+        <dt class = "col-sm-2">
+            Hábilitado
+            @*@Html.DisplayNameFor(model => model.Enabled)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Enabled)
+        </dd>
+        <dt class = "col-sm-2">
+            Borrado
+            @*@Html.DisplayNameFor(model => model.Deleted)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Deleted)
+        </dd>
+        <dt class = "col-sm-2">
+            ID Institución
+            @*@Html.DisplayNameFor(model => model.IdinstitutionNavigation)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdinstitutionNavigation.Idinstitution)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdinstitutionCountry">Editar</a> |
+    <a asp-action="Index">Regresar a Índice</a>
+</div>

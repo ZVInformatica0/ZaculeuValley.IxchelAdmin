@@ -1,0 +1,74 @@
+﻿@model IEnumerable<ZaculeuValley.IxchelAdmin.Models.InstitutionArea>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Índice</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Código Área
+                @*@Html.DisplayNameFor(model => model.AreaCode)*@
+            </th>
+            <th>
+                ID Páis
+                @*@Html.DisplayNameFor(model => model.IdinstitutionCountryNavigation)*@
+            </th>
+            <th>
+                ID Institución
+                @*@Html.DisplayNameFor(model => model.IdinstitutionNavigation)*@
+            </th>
+            <th>
+                Nombre Área
+                @*@Html.DisplayNameFor(model => model.AreaName)*@
+            </th>
+            
+            <th>
+                Hábilitado
+                @*@Html.DisplayNameFor(model => model.Enabled)*@
+            </th>
+            <th>
+                Borrado
+                @*@Html.DisplayNameFor(model => model.Deleted)*@
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AreaCode)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdinstitutionCountryNavigation.IdinstitutionCountry)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdinstitutionNavigation.Idinstitution)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AreaName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Enabled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deleted)
+            </td>
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdinstitutionArea">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdinstitutionArea">Detalles</a>@* |
+                <a asp-action="Delete" asp-route-id="@item.IdinstitutionArea">Borrar</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

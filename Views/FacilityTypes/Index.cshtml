@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ZaculeuValley.IxchelAdmin.Models.FacilityType>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Código Tipo
+                @*@Html.DisplayNameFor(model => model.FacilityTypeCode)*@
+            </th>
+            <th>
+                Nombre Tipo
+                @*@Html.DisplayNameFor(model => model.FacilityTypeName)*@
+            </th>
+            <th>
+                Hábilitado
+                @*@Html.DisplayNameFor(model => model.Enabled)*@
+            </th>
+            <th>
+                Borrado
+                @*@Html.DisplayNameFor(model => model.Deleted)*@
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FacilityTypeCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FacilityTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Enabled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deleted)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.IdinstitutionNavigation.Idinstitution)
+            </td>*@
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdfacilityType">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdfacilityType">Details</a> @*|
+                <a asp-action="Delete" asp-route-id="@item.IdfacilityType">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

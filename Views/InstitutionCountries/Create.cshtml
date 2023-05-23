@@ -1,0 +1,66 @@
+﻿@model ZaculeuValley.IxchelAdmin.Models.InstitutionCountry
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Crear</h1>
+
+<h4>País</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Idinstitution" class="control-label">Institución</label>
+                <select asp-for="Idinstitution" class ="form-control" asp-items="ViewBag.Idinstitution"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CountryCode" class="control-label">Código Interno País</label>
+                <input asp-for="CountryCode" class="form-control" />
+                <span asp-validation-for="CountryCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CountryName" class="control-label">Nombre del País</label>
+                <input asp-for="CountryName" class="form-control" />
+                <span asp-validation-for="CountryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CountryPhoneCode" class="control-label">Prefijo telefónico</label>
+                <input asp-for="CountryPhoneCode" class="form-control" />
+                <span asp-validation-for="CountryPhoneCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CountryDomainName" class="control-label">Dominio WEB</label>
+                <input asp-for="CountryDomainName" class="form-control" />
+                <span asp-validation-for="CountryDomainName" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    Habilitado
+                    <input class="form-check-input" asp-for="Enabled" />
+                </label>
+                <span asp-validation-for="Enabled" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    Borrado
+                    <input class="form-check-input" asp-for="Deleted" />
+                </label>
+                <span asp-validation-for="Deleted" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar a Índice</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
