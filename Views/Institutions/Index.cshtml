@@ -1,4 +1,9 @@
-﻿@model IEnumerable<ZaculeuValley.IxchelAdmin.Models.Institution>
+﻿@*@model IEnumerable<ZaculeuValley.IxchelAdmin.Models.Institution>*@
+
+
+@model PaginatedList<ZaculeuValley.IxchelAdmin.Models.Institution>
+@*@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />*@
 
 @{
     ViewData["Title"] = "Index";
@@ -9,17 +14,56 @@
 <p>
     <a asp-action="Create">Crear Nuevo</a>
 </p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Busca por nombre: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Buscar"/> |
+            <a asp-action="Index">Regresar a lista completa</a>
+        </p>
+    </div>
+</form>
+
+@*@using (Html.BeginForm())
+{
+    <p>
+       Busca por nombre: @Html.TextBox("SearchString")  
+        <input type="submit" value="Buscar" /></p>
+}*@
+
 <table class="table">
     <thead>
         <tr>
+            
             <th>
-                Nombre Institución
-            </th>
-            <th>
-                IDInstitución
+                @*@Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IdSortParm })*@
+              @*  <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID</a>*@
+
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "id_desc")
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID ↓</a>
+                }
+                else
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID ↑</a>
+                }
             </th>
             <th>
                 Código Institución
+            </th>
+            <th>
+                @*@Html.ActionLink("Nombre Institución", "Index", new { sortOrder = ViewBag.NameSortParm })*@
+                @*<a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Nombre Institución</a>*@
+
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "name_desc")
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Nombre Institución ↓</a>
+                }
+                else
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Nombre Institución ↑</a>
+                }
             </th>
             <th>
                 Hábilitado
@@ -34,14 +78,15 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.InstitutionName)
-                </td>
+                
                 <td>
                     @Html.DisplayFor(modelItem => item.Idinstitution)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.InstitutionCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InstitutionName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Enabled)
@@ -58,7 +103,22 @@
     </tbody>
 </table>
 
-<div class="form-inline">
-    <input type="text" class="form-control" id="searchTerm" placeholder="Buscar...">
-    <button type="submit" class="btn btn-primary">Buscar</button>
-</div>
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Anterior
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Siguiente
+</a>

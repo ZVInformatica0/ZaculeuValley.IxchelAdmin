@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ZaculeuValley.IxchelAdmin.Models;
+using PagedList;
 
 namespace ZaculeuValley.IxchelAdmin.Controllers
 {
@@ -19,13 +20,63 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
         }
 
         // GET: Institutions
-        public async Task<IActionResult> Index()
+
+        public async Task<IActionResult> Index(string sortOrder, string currentFilter, string searchString, int? pageNumber)
         {
-              return _context.Institutions != null ?
-                         View(await _context.Institutions.Where(i => i.Deleted == false).ToListAsync()) :
-                          Problem("Entity set 'IxchelWebpruebasContext.Institutions' is null.");
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["CurrentFilter"] = searchString;
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["IdSortParm"] = sortOrder == "Id" ? "id_desc" : "Id";
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            //var institutions = await _context.Institutions.Where(i => i.Deleted == false).ToListAsync();
+            IQueryable<Institution> institutions = _context.Institutions.Where(i => i.Deleted == false);
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                //institutions = institutions.Where(i => i.InstitutionName.Contains(searchString)).ToList();
+                institutions = institutions.Where(i => i.InstitutionName.Contains(searchString)
+                                       && i.Deleted == false);
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    institutions = institutions.OrderByDescending(i => i.InstitutionName);
+                    break;
+                case "Id":
+                    institutions = institutions.OrderBy(i => i.Idinstitution);
+                    break;
+                case "id_desc":
+                    institutions = institutions.OrderByDescending(i => i.Idinstitution);
+                    break;
+                default:
+                    institutions = institutions.OrderBy(i => i.InstitutionName);
+                    break;
+            }
+
+            int pageSize = 5;
+            var pagedInstitutions = await PaginatedList<Institution>.CreateAsync(institutions, pageNumber ?? 1, pageSize);
+
+            return View(pagedInstitutions);
+            //int pageSize = 3;
+            //return View(await PaginatedList<Institution>.CreateAsync(institutions, pageNumber ?? 1, pageSize));
         }
-       
+
+        //public async Task<IActionResult> Index()
+        //{
+        //      return _context.Institutions != null ?
+        //                 View(await _context.Institutions.Where(i => i.Deleted == false).ToListAsync()) :
+        //                  Problem("Entity set 'IxchelWebpruebasContext.Institutions' is null.");
+        //}
+
         // GET: Institutions/Details/5
         public async Task<IActionResult> Details(int? id)
         {
