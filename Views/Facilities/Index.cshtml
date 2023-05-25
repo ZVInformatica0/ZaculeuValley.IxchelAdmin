@@ -46,7 +46,14 @@
                 Código Tipo Instalación
                 @*@Html.DisplayNameFor(model => model.FacilityName)*@
             </th>
-            
+
+            <th>
+                Código Área
+                    @*@Html.DisplayNameFor(model => model.AreaCode)*@
+            </th>
+            <th>
+                Código Distrito
+                    @*@Html.DisplayNameFor(model => model.DistrictCode)*@
             </th>
             <th>
                 @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "name_desc")
@@ -60,29 +67,21 @@
                 @*@Html.DisplayNameFor(model => model.FacilityName)*@
             </th>
             <th>
-                Hábilitado
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "id_desc")
+                {
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["EnabledSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Hábilitado ↓</a>
+                }
+                else
+                {
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["EnabledSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Hábilitado ↑</a>
+                }
                 @*@Html.DisplayNameFor(model => model.Enabled)*@
             </th>
             <th>
                 Borrado
                 @*@Html.DisplayNameFor(model => model.Deleted)*@
             </th>
-            <th>
-                Código Área
-                @*@Html.DisplayNameFor(model => model.AreaCode)*@
-            </th>
-            <th>
-                Código Distrito
-                @*@Html.DisplayNameFor(model => model.DistrictCode)*@
-            </th>
-            <th>
-                ID Distrito
-                @*@Html.DisplayNameFor(model => model.IddistrictNavigation)*@
-            </th>
-            <th>
-                ID Instalación
-                @*@Html.DisplayNameFor(model => model.IdfacilityTypeNavigation)*@
-            </th>
+            
             
             <th></th>
         </tr>

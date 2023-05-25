@@ -41,10 +41,12 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                //institutions = institutions.Where(i => i.InstitutionName.Contains(searchString)).ToList();
-                countries = countries.Where(i => i.CountryName.Contains(searchString)
-                                       && i.Deleted == false);
+                countries = countries.Where(i =>
+                    i.CountryName.Contains(searchString) ||
+                    i.IdinstitutionCountry.ToString().Contains(searchString) &&
+                    i.Deleted == false);
             }
+
             switch (sortOrder)
             {
                 case "name_desc":
@@ -55,6 +57,9 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     break;
                 case "id_desc":
                     countries = countries.OrderByDescending(i => i.IdinstitutionCountry);
+                    break;
+                case "Enabled":
+                    countries = countries.OrderBy(i => i.Enabled);
                     break;
                 default:
                     countries = countries.OrderBy(i => i.CountryName);

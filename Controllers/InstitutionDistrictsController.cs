@@ -25,6 +25,7 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             ViewData["CurrentFilter"] = searchString;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["IdSortParm"] = sortOrder == "Id" ? "id_desc" : "Id";
+            ViewData["EnabledSortParm"] = sortOrder == "Enabled" ? "enabled_desc" : "Enabled";
 
             if (searchString != null)
             {
@@ -37,11 +38,19 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
 
             IQueryable<InstitutionDistrict> districts = _context.InstitutionDistricts.Where(i => i.Deleted == false);
 
+            //if (!String.IsNullOrEmpty(searchString))
+            //{
+            //    //institutions = institutions.Where(i => i.InstitutionName.Contains(searchString)).ToList();
+            //    districts = districts.Where(i => i.DistrictName.Contains(searchString)
+            //                           && i.Deleted == false);
+            //}
+
             if (!String.IsNullOrEmpty(searchString))
             {
-                //institutions = institutions.Where(i => i.InstitutionName.Contains(searchString)).ToList();
-                districts = districts.Where(i => i.DistrictName.Contains(searchString)
-                                       && i.Deleted == false);
+                districts = districts.Where(i =>
+                    i.DistrictName.Contains(searchString) ||
+                    i.IdinstitutionDistrict.ToString().Contains(searchString) &&
+                    i.Deleted == false);
             }
 
             switch (sortOrder)
@@ -54,6 +63,9 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     break;
                 case "id_desc":
                     districts = districts.OrderByDescending(i => i.IdinstitutionDistrict);
+                    break;
+                case "Enabled":
+                    districts = districts.OrderBy(i => i.Enabled);
                     break;
                 default:
                     districts = districts.OrderBy(i => i.DistrictName);

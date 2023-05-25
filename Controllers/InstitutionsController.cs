@@ -26,9 +26,11 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             ViewData["CurrentSort"] = sortOrder;
             ViewData["CurrentFilter"] = searchString;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewData["IdSortParm"] = sortOrder == "Id" ? "id_desc" : "Id";
+            ViewData["IdSortParm"] = sortOrder == "Id" ? "id_desc" : "Id"; 
+            ViewData["EnabledSortParm"] = sortOrder == "Enabled" ? "enabled_desc" : "Enabled";
+            
 
-            if (searchString != null)
+            if (searchString != null )
             {
                 pageNumber = 1;
             }
@@ -42,10 +44,13 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                //institutions = institutions.Where(i => i.InstitutionName.Contains(searchString)).ToList();
-                institutions = institutions.Where(i => i.InstitutionName.Contains(searchString)
-                                       && i.Deleted == false);
+                institutions = institutions.Where(i =>
+                    i.InstitutionName.Contains(searchString) ||
+                    i.Idinstitution.ToString().Contains(searchString) ||
+                    i.InstitutionCode.Contains(searchString) &&
+                    i.Deleted == false);
             }
+
             switch (sortOrder)
             {
                 case "name_desc":
@@ -56,6 +61,9 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     break;
                 case "id_desc":
                     institutions = institutions.OrderByDescending(i => i.Idinstitution);
+                    break;
+                case "Enabled":
+                    institutions = institutions.OrderBy(i => i.Enabled);
                     break;
                 default:
                     institutions = institutions.OrderBy(i => i.InstitutionName);

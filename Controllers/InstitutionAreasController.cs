@@ -31,6 +31,7 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             ViewData["CurrentFilter"] = searchString;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["IdSortParm"] = sortOrder == "Id" ? "id_desc" : "Id";
+            ViewData["EnabledSortParm"] = sortOrder == "Enabled" ? "enabled_desc" : "Enabled";
 
             if (searchString != null)
             {
@@ -43,11 +44,20 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
 
             IQueryable<InstitutionArea> areas = _context.InstitutionAreas.Where(i => i.Deleted == false);
 
+            //if (!String.IsNullOrEmpty(searchString))
+            //{
+            //    //institutions = institutions.Where(i => i.InstitutionName.Contains(searchString)).ToList();
+            //    areas = areas.Where(i => i.AreaName.Contains(searchString)
+            //                           && i.Deleted == false);
+            //}
+
             if (!String.IsNullOrEmpty(searchString))
             {
-                //institutions = institutions.Where(i => i.InstitutionName.Contains(searchString)).ToList();
-                areas = areas.Where(i => i.AreaName.Contains(searchString)
-                                       && i.Deleted == false);
+                areas = areas.Where(i =>
+                    i.AreaName.Contains(searchString) ||
+                    i.IdinstitutionArea.ToString().Contains(searchString) ||
+                    i.AreaCode.Contains(searchString) &&
+                    i.Deleted == false);
             }
 
             switch (sortOrder)
@@ -60,6 +70,9 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     break;
                 case "id_desc":
                     areas = areas.OrderByDescending(i => i.IdinstitutionArea);
+                    break;
+                case "Enabled":
+                    areas = areas.OrderBy(i => i.Enabled);
                     break;
                 default:
                     areas = areas.OrderBy(i => i.AreaName);

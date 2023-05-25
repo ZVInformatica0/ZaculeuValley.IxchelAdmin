@@ -31,6 +31,7 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             ViewData["CurrentFilter"] = searchString;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["IdSortParm"] = sortOrder == "Id" ? "id_desc" : "Id";
+            ViewData["EnabledSortParm"] = sortOrder == "Enabled" ? "enabled_desc" : "Enabled";
 
             if (searchString != null)
             {
@@ -44,12 +45,22 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             //var institutions = await _context.Institutions.Where(i => i.Deleted == false).ToListAsync();
             IQueryable<FacilityType> facilitytypes = _context.FacilityTypes.Where(i => i.Deleted == false);
 
+            //if (!String.IsNullOrEmpty(searchString))
+            //{
+            //    //institutions = institutions.Where(i => i.InstitutionName.Contains(searchString)).ToList();
+            //    facilitytypes = facilitytypes.Where(i => i.FacilityTypeName.Contains(searchString)
+            //                           && i.Deleted == false);
+            //}
+
             if (!String.IsNullOrEmpty(searchString))
             {
-                //institutions = institutions.Where(i => i.InstitutionName.Contains(searchString)).ToList();
-                facilitytypes = facilitytypes.Where(i => i.FacilityTypeName.Contains(searchString)
-                                       && i.Deleted == false);
+                facilitytypes = facilitytypes.Where(i =>
+                    i.FacilityTypeName.Contains(searchString) ||
+                    i.IdfacilityType.ToString().Contains(searchString) ||
+                    i.FacilityTypeCode.Contains(searchString) &&
+                    i.Deleted == false);
             }
+
             switch (sortOrder)
             {
                 case "name_desc":
@@ -60,6 +71,9 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     break;
                 case "id_desc":
                     facilitytypes = facilitytypes.OrderByDescending(i => i.Idinstitution);
+                    break;
+                case "Enabled":
+                    facilitytypes = facilitytypes.OrderBy(i => i.Enabled);
                     break;
                 default:
                     facilitytypes = facilitytypes.OrderBy(i => i.IdfacilityType);

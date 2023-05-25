@@ -31,6 +31,7 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             ViewData["CurrentFilter"] = searchString;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["IdSortParm"] = sortOrder == "Id" ? "id_desc" : "Id";
+            ViewData["EnabledSortParm"] = sortOrder == "Enabled" ? "enabled_desc" : "Enabled";
 
             if (searchString != null)
             {
@@ -44,12 +45,22 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             //var institutions = await _context.Institutions.Where(i => i.Deleted == false).ToListAsync();
             IQueryable<Facility> facilities = _context.Facilities.Where(i => i.Deleted == false);
 
+            //if (!String.IsNullOrEmpty(searchString))
+            //{
+            //    //institutions = institutions.Where(i => i.InstitutionName.Contains(searchString)).ToList();
+            //    facilities = facilities.Where(i => i.FacilityName.Contains(searchString)
+            //                           && i.Deleted == false);
+            //}
+
             if (!String.IsNullOrEmpty(searchString))
             {
-                //institutions = institutions.Where(i => i.InstitutionName.Contains(searchString)).ToList();
-                facilities = facilities.Where(i => i.FacilityName.Contains(searchString)
-                                       && i.Deleted == false);
+                facilities = facilities.Where(i =>
+                    i.FacilityName.Contains(searchString) ||
+                    i.Idfacility.ToString().Contains(searchString) ||
+                    i.FacilityCode.Contains(searchString) &&
+                    i.Deleted == false);
             }
+
             switch (sortOrder)
             {
                 case "name_desc":
@@ -60,6 +71,9 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     break;
                 case "id_desc":
                     facilities = facilities.OrderByDescending(i => i.Idfacility);
+                    break;
+                case "Enabled":
+                    facilities = facilities.OrderBy(i => i.Enabled);
                     break;
                 default:
                     facilities = facilities.OrderBy(i => i.FacilityName);

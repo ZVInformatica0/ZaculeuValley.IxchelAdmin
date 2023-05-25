@@ -18,8 +18,8 @@
 <form asp-action="Index" method="get">
     <div class="form-actions no-color">
         <p>
-            Busca por nombre: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
-            <input type="submit" value="Buscar"/> |
+            Buscar: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Buscar" /> |
             <a asp-action="Index">Regresar a lista completa</a>
         </p>
     </div>
@@ -66,7 +66,15 @@
                 }
             </th>
             <th>
-                Hábilitado
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "id_desc")
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["EnabledSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Hábilitado ↓</a>
+                }
+                else
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["EnabledSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Hábilitado ↑</a>
+                }
+          
             </th>
             <th>
                 Borrado

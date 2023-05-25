@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jEd5PafDa5MezcuHvplSd5yQCL1YnuK4mGKhAx6HLgA=",
+  "Hash": "0YNj48c3GEd+7XGvxujL84tY8Qe+ZOWmtb9pynUiIJE=",
   "Source": "ZaculeuValley.IxchelAdmin",
   "BasePath": "_content/ZaculeuValley.IxchelAdmin",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "D:\\ZV\\ZaculeuValley.IxchelAdmin\\wwwroot\\css\\StyleSheet.css",
+      "SourceId": "ZaculeuValley.IxchelAdmin",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ZV\\ZaculeuValley.IxchelAdmin\\wwwroot\\",
+      "BasePath": "_content/ZaculeuValley.IxchelAdmin",
+      "RelativePath": "css/StyleSheet.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\StyleSheet.css"
     },
     {
       "Identity": "D:\\ZV\\ZaculeuValley.IxchelAdmin\\wwwroot\\favicon.ico",

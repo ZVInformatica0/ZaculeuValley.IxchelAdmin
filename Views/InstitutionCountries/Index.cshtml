@@ -59,7 +59,14 @@
                 @*@Html.DisplayNameFor(model => model.CountryDomainName)*@
             </th>
             <th>
-                Hábilitado
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "id_desc")
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["EnabledSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Hábilitado ↓</a>
+                }
+                else
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["EnabledSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Hábilitado ↑</a>
+                }
                 @*@Html.DisplayNameFor(model => model.Enabled)*@
             </th>
             <th>
