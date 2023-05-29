@@ -27,11 +27,18 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
 
         public async Task<IActionResult> Index(string sortOrder, string currentFilter, string searchString, int? pageNumber)
         {
+            //Sortorder?
             ViewData["CurrentSort"] = sortOrder;
             ViewData["CurrentFilter"] = searchString;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewData["IdSortParm"] = sortOrder == "Id" ? "id_desc" : "Id";
+            ViewData["IdSortParm"] = sortOrder == "Idfacility" ? "id_desc" : "Idfacility";
+            ViewData["IdInstitutionSortParm"] = sortOrder == "Idinstitution" ? "idinstitution_desc" : "Idinstitution";
             ViewData["EnabledSortParm"] = sortOrder == "Enabled" ? "enabled_desc" : "Enabled";
+            ViewData["FacilityCodeSortParm"] = sortOrder == "FacilityCode" ? "facilitycode_desc" : "FacilityCode";
+            ViewData["FacilityTypeSortParm"] = sortOrder == "IdfacilityType" ? "facilitytype_desc" : "IdfacilityType";
+            ViewData["AreaCodeSortParm"] = sortOrder == "AreaCode" ? "areacode_desc" : "AreaCode";
+            ViewData["DistrictTypeSortParm"] = sortOrder == "DistrictCode" ? "districtcode_desc" : "DistrictCode";
+
 
             if (searchString != null)
             {
@@ -43,7 +50,12 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             }
 
             //var institutions = await _context.Institutions.Where(i => i.Deleted == false).ToListAsync();
-            IQueryable<Facility> facilities = _context.Facilities.Where(i => i.Deleted == false);
+            IQueryable<Facility> facilities = _context.Facilities
+                .Where(i => i.Deleted == false)
+                .Include(f => f.IddistrictNavigation)
+                    .ThenInclude(d => d.DistrictName)
+                .Include(f => f.IdfacilityTypeNavigation)
+                    .ThenInclude(t => t.FacilityTypeName);
 
             //if (!String.IsNullOrEmpty(searchString))
             //{
@@ -60,25 +72,59 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     i.FacilityCode.Contains(searchString) &&
                     i.Deleted == false);
             }
-
+            //switch for the filtering ASC and DESC for each column
             switch (sortOrder)
             {
                 case "name_desc":
                     facilities = facilities.OrderByDescending(i => i.FacilityName);
                     break;
-                case "Id":
+                case "Idfacility":
                     facilities = facilities.OrderBy(i => i.Idfacility);
                     break;
                 case "id_desc":
                     facilities = facilities.OrderByDescending(i => i.Idfacility);
                     break;
+                case "Idinstitution":
+                    facilities = facilities.OrderBy(i => i.Idinstitution);
+                    break;
+                case "idinstitution_desc":
+                    facilities = facilities.OrderByDescending(i => i.Idinstitution);
+                    break;
                 case "Enabled":
                     facilities = facilities.OrderBy(i => i.Enabled);
+                    break;;
+                case "FacilityCode":
+                    facilities = facilities.OrderBy(i => i.FacilityCode);
+                    break;
+                case "FacilityType":
+                    facilities = facilities.OrderBy(i => i.IdfacilityType);
+                    break;
+                case "enabled_desc":
+                    facilities = facilities.OrderByDescending(i => i.Enabled);
+                    break; ;
+                case "facilitycode_desc":
+                    facilities = facilities.OrderByDescending(i => i.FacilityCode);
+                    break;
+                case "facilitytype_desc":
+                    facilities = facilities.OrderByDescending(i => i.IdfacilityType);
+                    break;
+                case "AreaCode":
+                    facilities = facilities.OrderBy(i => i.AreaCode);
+                    break;
+                case "areacode_desc":
+                    facilities = facilities.OrderByDescending(i => i.AreaCode);
+                    break;
+                case "DistrictCode":
+                    facilities = facilities.OrderBy(i => i.DistrictCode);
+                    break;
+                case "districtcode_desc":
+                    facilities = facilities.OrderByDescending(i => i.DistrictCode);
                     break;
                 default:
                     facilities = facilities.OrderBy(i => i.FacilityName);
                     break;
             }
+
 
             int pageSize = 5;
             var pagedFacilities = await PaginatedList<Facility>.CreateAsync(facilities, pageNumber ?? 1, pageSize);

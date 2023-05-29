@@ -35,23 +35,61 @@
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID ↑</a>
                 }
             <th>
-                ID Institución
+                    @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "idinstitution_desc")
+                    {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["IdInstitutionSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID Institución ↓</a>
+                    }
+                    else
+                    {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["IdInstitutionSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID Institución ↑</a>
+                    }
+                
                 @*@Html.DisplayNameFor(model => model.IdinstitutionNavigation)*@
             </th>
             <th>
-                Código Instalación
+                    @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "facilitycode_desc")
+                    {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["FacilityCodeSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Instalación ↓</a>
+                    }
+                    else
+                    {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["FacilityCodeSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Instalación ↑</a>
+                    }
                 @*@/*Html.DisplayNameFor(model => model.FacilityCode)*/*@
             </th>
             <th>
-                Código Tipo Instalación
+                    @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "facilitytype_desc")
+                    {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["FacilityTypeSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Tipo Instalación ↓</a>
+                    }
+                    else
+                    {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["FacilityTypeSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Tipo Instalación ↑</a>
+                    }
                 @*@Html.DisplayNameFor(model => model.FacilityName)*@
             </th>
 
             <th>
-                Código Área
+                    @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "areacode_desc")
+                    {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["AreaCodeSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Área ↓</a>
+                    }
+                    else
+                    {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["AreaCodeSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Área ↑</a>
+                    }
+                
                     @*@Html.DisplayNameFor(model => model.AreaCode)*@
             </th>
             <th>
+                    @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "districtcode_desc")
+                    {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["DistrictTypeSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Distrito ↓</a>
+                    }
+                    else
+                    {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["DistrictTypeSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Distrito ↑</a>
+                    }
                 Código Distrito
                     @*@Html.DisplayNameFor(model => model.DistrictCode)*@
             </th>
@@ -107,7 +145,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.DistrictCode)
             </td>
-
             <td>
                 @Html.DisplayFor(modelItem => item.FacilityName)
             </td>
