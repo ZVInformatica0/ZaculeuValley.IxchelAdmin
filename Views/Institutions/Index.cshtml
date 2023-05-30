@@ -103,6 +103,7 @@
                     @Html.DisplayFor(modelItem => item.Deleted)
                 </td>
                 <td>
+                    <a asp-action="Selection" asp-route-id="@item.Idinstitution">Seleccionar</a> |
                     <a asp-action="Edit" asp-route-id="@item.Idinstitution">Editar</a> |
                     <a asp-action="Details" asp-route-id="@item.Idinstitution">Detalles</a>
                 </td>

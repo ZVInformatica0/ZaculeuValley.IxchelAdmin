@@ -31,15 +31,23 @@ public partial class InstitutionCountry
     /// Phone code for Table Institution Country
     /// </summary>
     /// 
-    [StringLength(4, ErrorMessage = "El prefijo teléfonico debe tener como máximo 4 caracteres con el simbolo +.")]
+    //[StringLength(4, ErrorMessage = "El prefijo teléfonico debe tener como máximo 4 caracteres con el simbolo +.")]
+    //public string? CountryPhoneCode { get; set; }
+
+    [RegularExpression(@"^\+\d{1,4}$", ErrorMessage = "El prefijo telefónico debe tener el formato '+1234'.")]
     public string? CountryPhoneCode { get; set; }
+
 
     /// <summary>
     /// Domain ectention for the table Institution Country
     /// </summary>
     /// 
-    [StringLength(4, ErrorMessage = "El dominio debe tener como máximo 3 caracteres con el simbolo (Ej.: .gt)")]
+    //[StringLength(4, ErrorMessage = "El dominio debe tener como máximo 3 caracteres con el simbolo (Ej.: .gt)")]
+    //public string? CountryDomainName { get; set; }
+
+    [RegularExpression(@"^\.[a-zA-Z]{2}$", ErrorMessage = "El dominio debe tener el formato '.gt' (por ejemplo).")]
     public string? CountryDomainName { get; set; }
+
 
     public bool Enabled { get; set; }
 

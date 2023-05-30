@@ -42,15 +42,27 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                 searchString = currentFilter;
             }
 
-            //var institutions = await _context.Institutions.Where(i => i.Deleted == false).ToListAsync();
             IQueryable<Facility> facilities = _context.Facilities.Where(i => i.Deleted == false);
 
-            //if (!String.IsNullOrEmpty(searchString))
+            //IQueryable<Facility> facilities = _context.Facilities
+            //.Where(i => i.Deleted == false)
+            //.Join(_context.InstitutionDistricts, f => f.IDDistrict, id => id.IDInstitutionDistrict, (f, id) => new { Facility = f, InstitutionDistrict = id })
+            //.Join(_context.InstitutionAreas, fi => fi.InstitutionDistrict.IDInstitutionArea, ia => ia.IDInstitutionArea, (fi, ia) => new { fi.Facility, fi.InstitutionDistrict, InstitutionArea = ia })
+            //.Join(_context.FacilityTypes, fia => fia.Facility.IDFacilityType, ft => ft.IDFacilityType, (fia, ft) => new { fia.Facility, fia.InstitutionDistrict, fia.InstitutionArea, FacilityType = ft })
+            //.Join(_context.Institutions, fiaft => fiaft.Facility.IDInstitution, i => i.IDInstitution, (fiaft, i) => new { fiaft.Facility, fiaft.InstitutionDistrict, fiaft.InstitutionArea, fiaft.FacilityType, Institution = i })
+            //.Select(fiafti => new Facility
             //{
-            //    //institutions = institutions.Where(i => i.InstitutionName.Contains(searchString)).ToList();
-            //    facilities = facilities.Where(i => i.FacilityName.Contains(searchString)
-            //                           && i.Deleted == false);
-            //}
+            //    IDFacility = fiafti.Facility.IDFacility,
+            //    FacilityCode = fiafti.Facility.FacilityCode,
+            //    IDInstitution = fiafti.Facility.IDInstitution,
+            //    InstitutionName = fiafti.Institution.InstitutionName,
+            //    FacilityTypeName = fiafti.FacilityType.FacilityTypeName,
+            //    AreaName = fiafti.InstitutionArea.AreaName,
+            //    DistrictName = fiafti.InstitutionDistrict.DistrictName
+            //});
+
+
+
 
             if (!String.IsNullOrEmpty(searchString))
             {

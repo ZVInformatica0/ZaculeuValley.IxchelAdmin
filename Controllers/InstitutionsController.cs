@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -20,7 +21,6 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
         }
 
         // GET: Institutions
-
         public async Task<IActionResult> Index(string sortOrder, string currentFilter, string searchString, int? pageNumber)
         {
             ViewData["CurrentSort"] = sortOrder;
@@ -41,6 +41,7 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
 
             //var institutions = await _context.Institutions.Where(i => i.Deleted == false).ToListAsync();
             IQueryable<Institution> institutions = _context.Institutions.Where(i => i.Deleted == false);
+
 
             if (!String.IsNullOrEmpty(searchString))
             {
