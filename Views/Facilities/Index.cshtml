@@ -4,7 +4,27 @@
 
 @{
     ViewData["Title"] = "Index";
+    int? institutionId = HttpContext.Session.GetInt32("InstitutionId");
+    string institutionName = "Home";
+
+    // Retrieve the institution name from the session variable if it exists
+    if (institutionId.HasValue)
+    {
+        // Replace the following line with the actual code to fetch the institution name from the database
+        institutionName = GetInstitutionName(institutionId.Value);
+    }
 }
+
+<!-- Breadcrumb navigation -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-controller="Home" asp-action="Index">@institutionName</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Instalaciones</li>
+    </ol>
+</nav>
+
 
 <h1>Instalaciones</h1>
 
