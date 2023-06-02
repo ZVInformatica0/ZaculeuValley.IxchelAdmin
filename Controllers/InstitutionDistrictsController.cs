@@ -80,7 +80,7 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     districts = districts.OrderBy(i => i.DistrictCode);
                     break;
                 case "districtcode_desc":
-                    districts = districts.OrderByDescending(i => i.IdinstitutionAreaNavigation.AreaCode);
+                    districts = districts.OrderByDescending(i => i.DistrictCode);
                     break;
                 case "Enabled":
                     districts = districts.OrderBy(i => i.Enabled);
