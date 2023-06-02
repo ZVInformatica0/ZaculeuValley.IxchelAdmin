@@ -239,8 +239,8 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             {
                 HttpContext.Session.SetString("InstitutionName", institution.InstitutionName);
             }
-            //return Redirect($"/Home/{id}");
-            return RedirectToAction($"/Home");
+            return Redirect($"/Home");
+            //return RedirectToAction($"/Home");
         }
 
 
