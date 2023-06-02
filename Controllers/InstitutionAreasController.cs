@@ -31,6 +31,8 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             ViewData["CurrentFilter"] = searchString;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["IdSortParm"] = sortOrder == "Id" ? "id_desc" : "Id";
+            ViewData["AreaCodeSortParm"] = sortOrder == "AreaCode" ? "areacode_desc" : "AreaCode";
+            ViewData["CountryCodeSortParm"] = sortOrder == "CountryCode" ? "countrycode_desc" : "CountryCode";
             ViewData["EnabledSortParm"] = sortOrder == "Enabled" ? "enabled_desc" : "Enabled";
 
             if (searchString != null)
@@ -47,8 +49,15 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             int? institutionId = HttpContext.Session.GetInt32("InstitutionId");
 
             // Use the Institution ID to filter facilities
+            //IQueryable<InstitutionArea> areas = _context.InstitutionAreas
+            //    .Where(f => f.Idinstitution == institutionId && f.Deleted == false);
+
+
             IQueryable<InstitutionArea> areas = _context.InstitutionAreas
-                .Where(f => f.Idinstitution == institutionId && f.Deleted == false);
+                .Where(f => f.Idinstitution == institutionId && f.Deleted == false)
+                .Include(f => f.IdinstitutionNavigation)
+                .Include(f => f.IdinstitutionCountryNavigation)
+                .Include(d => d.IdinstitutionAreaNavigation)
 
             //if (!String.IsNullOrEmpty(searchString))
             //{
@@ -73,6 +82,18 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     break;
                 case "Id":
                     areas = areas.OrderBy(i => i.IdinstitutionArea);
+                    break;
+                case "AreaCode":
+                    areas = areas.OrderBy(i => i.AreaCode);
+                    break;
+                case "areacode_desc":
+                    areas = areas.OrderByDescending(i => i.AreaCode);
+                    break;
+                case "CountryCode":
+                    areas = areas.OrderBy(i => i.IdinstitutionCountryNavigation.IdinstitutionCountry);
+                    break;
+                case "countrycode_desc":
+                    areas = areas.OrderByDescending(i => i.IdinstitutionCountryNavigation.IdinstitutionCountry);
                     break;
                 case "id_desc":
                     areas = areas.OrderByDescending(i => i.IdinstitutionArea);
@@ -223,7 +244,8 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             var institutionArea = await _context.InstitutionAreas.FindAsync(id);
             if (institutionArea != null)
             {
-                _context.InstitutionAreas.Remove(institutionArea);
+                //_context.InstitutionAreas.Remove(institutionArea);
+                institutionArea.Deleted = true;
             }
             
             await _context.SaveChangesAsync();

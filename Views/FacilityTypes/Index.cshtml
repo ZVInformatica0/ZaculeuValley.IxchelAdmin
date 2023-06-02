@@ -60,11 +60,6 @@
                 }
                 @*@Html.DisplayNameFor(model => model.Enabled)*@
             </th>
-            <th>
-                Borrado
-                @*@Html.DisplayNameFor(model => model.Deleted)*@
-            </th>
-            
             <th></th>
         </tr>
     </thead>
@@ -83,14 +78,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Enabled)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Deleted)
-            </td>
+            
             @*<td>
                 @Html.DisplayFor(modelItem => item.IdinstitutionNavigation.Idinstitution)
             </td>*@
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdfacilityType">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdfacilityType">Eliminar</a> |
                 <a asp-action="Details" asp-route-id="@item.IdfacilityType">Details</a> @*|
                 <a asp-action="Delete" asp-route-id="@item.IdfacilityType">Delete</a>*@
             </td>

@@ -25,7 +25,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+@*            <th>
                 @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "id_desc")
                 {
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID ↓</a>
@@ -44,7 +44,7 @@
                 {
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["IdInstitutionParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID Institución ↑</a>
                 }
-            </th>
+            </th>*@
             <th>
                 @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "facilitycode_desc")
                 {
@@ -112,12 +112,12 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+@*                <td>
                     @Html.DisplayFor(modelItem => item.Idfacility)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.IdinstitutionNavigation.InstitutionName)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.FacilityCode)
                 </td>

@@ -220,7 +220,8 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             var facilityType = await _context.FacilityTypes.FindAsync(id);
             if (facilityType != null)
             {
-                _context.FacilityTypes.Remove(facilityType);
+                //_context.FacilityTypes.Remove(facilityType);
+                facilityType.Deleted = true;
             }
             
             await _context.SaveChangesAsync();

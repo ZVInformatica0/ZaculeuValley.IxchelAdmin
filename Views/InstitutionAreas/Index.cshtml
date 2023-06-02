@@ -25,7 +25,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+@*            <th>
                 @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "id_desc")
                 {
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID ↓</a>
@@ -34,13 +34,28 @@
                 {
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID ↑</a>
                 }
-            </th>
+            </th>*@
             <th>
-                Código Área
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "areacode_desc")
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["AreaCodeSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Área ↓</a>
+                }
+                else
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["AreaCodeSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Área ↑</a>
+                }          
                 @*@Html.DisplayNameFor(model => model.AreaCode)*@
             </th>
             <th>
-                ID Páis
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "countrycode_desc")
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["CountryCodeSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID Páis ↓</a>
+                }
+                else
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["CountryCodeSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID Páis ↑</a>
+                }
+                
                 @*@Html.DisplayNameFor(model => model.IdinstitutionCountryNavigation)*@
             </th>
             
@@ -67,25 +82,20 @@
                 }
                 @*@Html.DisplayNameFor(model => model.Enabled)*@
             </th>
-            <th>
-                Borrado
-                @*@Html.DisplayNameFor(model => model.Deleted)*@
-            </th>
-            
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+@*            <td>
                 @Html.DisplayFor(modelItem => item.IdinstitutionArea)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.AreaCode)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdinstitutionCountry)
+                    @Html.DisplayFor(modelItem => item.IdinstitutionCountryNavigation.CountryName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.AreaName)
@@ -93,12 +103,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Enabled)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Deleted)
-            </td>
             
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdinstitutionArea">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdinstitutionArea">Eliminar</a> |
                 <a asp-action="Details" asp-route-id="@item.IdinstitutionArea">Detalles</a>@* |
                 <a asp-action="Delete" asp-route-id="@item.IdinstitutionArea">Borrar</a>*@
             </td>
