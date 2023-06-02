@@ -313,7 +313,8 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             var facility = await _context.Facilities.FindAsync(id);
             if (facility != null)
             {
-                _context.Facilities.Remove(facility);
+                //_context.Facilities.Remove(facility);
+                facility.Deleted = true;
             }
             
             await _context.SaveChangesAsync();

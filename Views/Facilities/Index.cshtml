@@ -105,9 +105,6 @@
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["EnabledSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Habilitado ↑</a>
                 }
             </th>
-            <th>
-                Borrado
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -138,15 +135,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Enabled)
-                </td>
+                </td>        
                 <td>
-                    @Html.DisplayFor(modelItem => item.Deleted)
-                </td>
-                <td>
-                    // Edit button
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Idfacility">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Idfacility">Borrar</a> |
                     <a asp-action="Details" asp-route-id="@item.Idfacility">Detalles</a>@* |
                 <a asp-action="Delete" asp-route-id="@item.Idfacility">Borrar</a>*@
                 </td>
