@@ -56,7 +56,15 @@
             </th>
             
             <th>
-                Código Distrito
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "districtcode_desc")
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["DistrictCodeSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Distrito ↓</a>
+                }
+                else
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["DistrictCodeSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Distrito ↑</a>
+                }
+                
                 @*@Html.DisplayNameFor(model => model.DistrictCode)*@
             </th>
             <th>

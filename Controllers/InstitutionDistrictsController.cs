@@ -26,6 +26,7 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["IdSortParm"] = sortOrder == "Id" ? "id_desc" : "Id";
             ViewData["EnabledSortParm"] = sortOrder == "Enabled" ? "enabled_desc" : "Enabled";
+            ViewData["DistrictCodeSortParm"] = sortOrder == "DistrictCode" ? "districtcode_desc" : "DistrictCode";
 
             if (searchString != null)
             {
@@ -75,6 +76,12 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                 case "id_desc":
                     districts = districts.OrderByDescending(i => i.IdinstitutionAreaNavigation.AreaCode);
                     break;
+                case "DistrictCode":
+                    districts = districts.OrderBy(i => i.DistrictCode);
+                    break;
+                case "districtcode_desc":
+                    districts = districts.OrderByDescending(i => i.IdinstitutionAreaNavigation.AreaCode);
+                    break;
                 case "Enabled":
                     districts = districts.OrderBy(i => i.Enabled);
                     break;
@@ -82,6 +89,7 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     districts = districts.OrderBy(i => i.DistrictName);
                     break;
             }
+            
 
             int pageSize = 5;
             var pagedInstitutionDistricts = await PaginatedList<InstitutionDistrict>.CreateAsync(districts, pageNumber ?? 1, pageSize);
