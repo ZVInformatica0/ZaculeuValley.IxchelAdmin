@@ -43,8 +43,13 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             }
 
             //var institutions = await _context.Institutions.Where(i => i.Deleted == false).ToListAsync();
-            IQueryable<FacilityType> facilitytypes = _context.FacilityTypes.Where(i => i.Deleted == false);
+            //IQueryable<FacilityType> facilitytypes = _context.FacilityTypes.Where(i => i.Deleted == false);
 
+            int? institutionId = HttpContext.Session.GetInt32("InstitutionId");
+
+            // Use the Institution ID to filter facilities
+            IQueryable<FacilityType> facilitytypes = _context.FacilityTypes
+                .Where(f => f.Idinstitution == institutionId && f.Deleted == false);
             //if (!String.IsNullOrEmpty(searchString))
             //{
             //    //institutions = institutions.Where(i => i.InstitutionName.Contains(searchString)).ToList();

@@ -42,7 +42,13 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                 searchString = currentFilter;
             }
 
-            IQueryable<InstitutionArea> areas = _context.InstitutionAreas.Where(i => i.Deleted == false);
+            //IQueryable<InstitutionArea> areas = _context.InstitutionAreas.Where(i => i.Deleted == false);
+
+            int? institutionId = HttpContext.Session.GetInt32("InstitutionId");
+
+            // Use the Institution ID to filter facilities
+            IQueryable<InstitutionArea> areas = _context.InstitutionAreas
+                .Where(f => f.Idinstitution == institutionId && f.Deleted == false);
 
             //if (!String.IsNullOrEmpty(searchString))
             //{
