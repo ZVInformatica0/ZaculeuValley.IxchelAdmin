@@ -4,20 +4,15 @@
 
 @{
     ViewData["Title"] = "Index";
-    var institutionName = ViewBag.InstitutionName as string;
 }
 
-<!-- Breadcrumb navigation -->
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="/Home">@institutionName</a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">
-            @institutionName
-        </li>
+        <li class="breadcrumb-item"><a href="/Home">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewBag.InstitutionName</li>
     </ol>
 </nav>
+
 
 <h1>Instalaciones</h1>
 
