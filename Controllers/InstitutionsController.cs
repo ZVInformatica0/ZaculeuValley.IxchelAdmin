@@ -233,15 +233,14 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
         public IActionResult Selection(int id, string InstitutionName)
         {
             HttpContext.Session.SetInt32("InstitutionId", id);
-            HttpContext.Session.SetString("InstitutionName", InstitutionName);
 
             var institution = _context.Institutions.FirstOrDefault(i => i.Idinstitution == id);
             if (institution != null)
             {
                 HttpContext.Session.SetString("InstitutionName", institution.InstitutionName);
             }
-
-            return RedirectToAction("Home");
+            //return Redirect($"/Home/{id}");
+            return RedirectToAction($"/Home");
         }
 
 
