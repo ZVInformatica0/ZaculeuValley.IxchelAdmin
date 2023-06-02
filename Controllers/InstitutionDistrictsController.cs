@@ -40,7 +40,8 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             //IQueryable<InstitutionDistrict> districts = _context.InstitutionDistricts.Where(i => i.Deleted == false);
 
             int? institutionId = HttpContext.Session.GetInt32("InstitutionId");
-
+            string? institutionName = HttpContext.Session.GetString("InstitutionName");
+            ViewBag.InstitutionName = institutionName;
             // Use the Institution ID to filter facilities
             //IQueryable<InstitutionDistrict> districts = _context.InstitutionDistricts
             //    .Where(f => f.Idinstitution == institutionId && f.Deleted == false);
