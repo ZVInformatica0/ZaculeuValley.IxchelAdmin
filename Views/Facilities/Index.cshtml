@@ -35,24 +35,61 @@
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID ↑</a>
                 }
             <th>
-                ID Institución
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "idinstitution_desc")
+                {
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["IdInstitutionParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID Institución ↓</a>
+                }
+                else
+                {
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["IdInstitutionParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID Institución ↑</a>
+                }
+                
                 @*@Html.DisplayNameFor(model => model.IdinstitutionNavigation)*@
             </th>
             <th>
-                Código Instalación
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "facilitycode_desc")
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["FacilityCodeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Instalación ↓</a>
+                }
+                else
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["FacilityCodeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Instalación ↑</a>
+                }
+                
                 @*@/*Html.DisplayNameFor(model => model.FacilityCode)*/*@
             </th>
             <th>
-                Código Tipo Instalación
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "idfacilitytype_desc")
+                {
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["IdfacilityTypeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Tipo Instalación ↓</a>
+                }
+                else
+                {
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["IdfacilityTypeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Tipo Instalación ↑</a>
+                }                
                 @*@Html.DisplayNameFor(model => model.FacilityName)*@
             </th>
-
             <th>
-                Código Área
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "areacode_desc")
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["AreaCodeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Área ↓</a>
+                }
+                else
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["AreaCodeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Área ↑</a>
+                }
                     @*@Html.DisplayNameFor(model => model.AreaCode)*@
             </th>
             <th>
-                Código Distrito
+                    @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "districtcode_desc")
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["DistrictCodeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Distrito ↓</a>
+                }
+                else
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["DistrictCodeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Distrito ↑</a>
+                }
+                
                     @*@Html.DisplayNameFor(model => model.DistrictCode)*@
             </th>
             <th>
@@ -141,13 +178,13 @@
    asp-route-sortOrder="@ViewData["CurrentSort"]"
    asp-route-pageNumber="@(Model.PageIndex - 1)"
    asp-route-currentFilter="@ViewData["CurrentFilter"]"
-   class="btn btn-default @prevDisabled">
+   class="btn btn-default mb-5 @prevDisabled">
     Anterior
 </a>
 <a asp-action="Index"
    asp-route-sortOrder="@ViewData["CurrentSort"]"
    asp-route-pageNumber="@(Model.PageIndex + 1)"
    asp-route-currentFilter="@ViewData["CurrentFilter"]"
-   class="btn btn-default @nextDisabled">
+   class="btn btn-default mb-5 @nextDisabled">
     Siguiente
 </a>

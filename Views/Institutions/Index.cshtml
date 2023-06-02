@@ -5,25 +5,48 @@
 @*@using PagedList.Mvc;
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />*@
 
+@using Microsoft.AspNetCore.Http;
+
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Instituciones</h1>
+    <h1 class="text-center mt-5 mb-3">Instituciones</h1>
 
-<p>
-    <a asp-action="Create">Crear Nuevo</a>
-</p>
+@{
+    var request = Context.Request;
+    var searchString = request.Query["SearchString"].ToString();
+
+    var showTable = !string.IsNullOrEmpty(searchString?.Trim());
+
+}
+
+@if (ViewBag.DisableSidebar)
+{
+    <style>
+        /* Additional styles to hide or disable the sidebar */
+        #sidebar {
+            display: none;
+        }
+    </style>
+}
 
 <form asp-action="Index" method="get">
-    <div class="form-actions no-color">
-        <p>
-            Buscar: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
-            <input type="submit" value="Buscar" /> |
-            <a asp-action="Index">Regresar a lista completa</a>
-        </p>
+    <div class="containerInstitutionSearch no-color">
+        <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+        <button class="btn my-2 my-sm-0" type="submit">
+            <img style="width: 30px; height: 30px;" src="./lib/isearch.png" alt="Search Icon">&nbsp; |
+        </button>
+        <button class="btn btn-outline-success my-2 my-sm-0" asp-action="Create">Crear Nuevo</button>
+        @*<a class="btn my-2 my-sm-0" href="?SearchString=&sortOrder=@(ViewData["CurrentSort"] ?? "")">
+            Mostrar Todo
+        </a>*@
     </div>
 </form>
+
+
+
+
 
 @*@using (Html.BeginForm())
 {
@@ -32,102 +55,97 @@
         <input type="submit" value="Buscar" /></p>
 }*@
 
-<table class="table">
-    <thead>
-        <tr>
-            
-            <th>
-                @*@Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IdSortParm })*@
-              @*  <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID</a>*@
 
-                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "id_desc")
-                {
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID ↓</a>
-                }
-                else
-                {
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID ↑</a>
-                }
-            </th>
-            <th>
-                Código Institución
-            </th>
-            <th>
-                @*@Html.ActionLink("Nombre Institución", "Index", new { sortOrder = ViewBag.NameSortParm })*@
-                @*<a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Nombre Institución</a>*@
 
-                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "name_desc")
-                {
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Nombre Institución ↓</a>
-                }
-                else
-                {
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Nombre Institución ↑</a>
-                }
-            </th>
-            <th>
-                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "id_desc")
-                {
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["EnabledSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Hábilitado ↓</a>
-                }
-                else
-                {
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["EnabledSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Hábilitado ↑</a>
-                }
-          
-            </th>
-            <th>
-                Borrado
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+
+@if (showTable @*|| string.IsNullOrEmpty(ViewData["CurrentFilter"]?.ToString())*@)
+{
+    <table class="table mt-3">
+        <thead>
             <tr>
-                
-                <td>
-                    @Html.DisplayFor(modelItem => item.Idinstitution)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.InstitutionCode)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.InstitutionName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Enabled)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Deleted)
-                </td>
-                <td>
-                    <a asp-action="Selection" asp-route-id="@item.Idinstitution">Seleccionar</a> |
-                    <a asp-action="Edit" asp-route-id="@item.Idinstitution">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.Idinstitution">Detalles</a>
-                </td>
+                <th>
+                    @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "institutioncode_desc")
+                    {
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["InstitutionCodeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Institución ↓</a>
+                    }
+                    else
+                    {
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["InstitutionCodeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Institución ↑</a>
+                    }
+
+                </th>
+                <th>
+                    @*@Html.ActionLink("Nombre Institución", "Index", new { sortOrder = ViewBag.NameSortParm })*@
+                    @*<a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Nombre Institución</a>*@
+
+                    @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "name_desc")
+                    {
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Nombre Institución ↓</a>
+                    }
+                    else
+                    {
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Nombre Institución ↑</a>
+                    }
+                </th>
+                <th>
+                    @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "id_desc")
+                    {
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["EnabledSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Hábilitado ↓</a>
+                    }
+                    else
+                    {
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["EnabledSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Hábilitado ↑</a>
+                    }
+
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InstitutionCode)
+                    </td>
+                    <td>
+                        @*<a asp-action="Selection" asp-route-id="@item.Idinstitution"> @Html.DisplayFor(modelItem => item.InstitutionName)</a>*@
+                        <a href="@Url.Action("Selection", new { id = item.Idinstitution })">@Html.DisplayFor(modelItem => item.InstitutionName)</a>
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Enabled)
+                    </td>
+                    <td>
+
+                        <a asp-action="Delete" asp-route-id="@item.Idinstitution">Eliminar</a> |
+                        <a asp-action="Details" asp-route-id="@item.Idinstitution">Detalles</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
 
 @{
     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }
+<div class="containerInstitutionSearch">
+    <a asp-action="Index"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-pageNumber="@(Model.PageIndex - 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-default @prevDisabled">
+        Anterior
+    </a>
+    <a asp-action="Index"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-pageNumber="@(Model.PageIndex + 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-default @nextDisabled">
+        Siguiente
+    </a>
+</div>
 
-<a asp-action="Index"
-   asp-route-sortOrder="@ViewData["CurrentSort"]"
-   asp-route-pageNumber="@(Model.PageIndex - 1)"
-   asp-route-currentFilter="@ViewData["CurrentFilter"]"
-   class="btn btn-default @prevDisabled">
-    Anterior
-</a>
-<a asp-action="Index"
-   asp-route-sortOrder="@ViewData["CurrentSort"]"
-   asp-route-pageNumber="@(Model.PageIndex + 1)"
-   asp-route-currentFilter="@ViewData["CurrentFilter"]"
-   class="btn btn-default @nextDisabled">
-    Siguiente
-</a>

@@ -28,7 +28,11 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["IdSortParm"] = sortOrder == "Id" ? "id_desc" : "Id"; 
             ViewData["EnabledSortParm"] = sortOrder == "Enabled" ? "enabled_desc" : "Enabled";
-            
+            ViewData["InstitutionCodeParm"] = sortOrder == "InstitutionCode" ? "institutioncode_desc" : "InstitutionCode";
+
+            ViewBag.DisableSidebar = true;
+
+
 
             if (searchString != null )
             {
@@ -65,6 +69,15 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     break;
                 case "Enabled":
                     institutions = institutions.OrderBy(i => i.Enabled);
+                    break;
+                case "enabled_desc":
+                    institutions = institutions.OrderByDescending(i => i.Enabled);
+                    break;
+                case "InstitutionCode":
+                    institutions = institutions.OrderBy(i => i.InstitutionCode);
+                    break;
+                case "institutioncode_desc":
+                    institutions = institutions.OrderByDescending(i => i.InstitutionCode);
                     break;
                 default:
                     institutions = institutions.OrderBy(i => i.InstitutionName);
@@ -207,11 +220,23 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             var institution = await _context.Institutions.FindAsync(id);
             if (institution != null)
             {
-                _context.Institutions.Remove(institution);
+                //_context.Institutions.Remove(institution);
+                institution.Deleted = true;
             }
+            
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Selection(int id)
+        {
+            // Save the Institution ID or perform any necessary logic
+
+            // Redirect to a new view passing the Institution ID
+            //return RedirectToAction("Home", new { id = id });
+            //return Redirect($"/Home/{id}");
+            return Redirect($"/Home");
         }
 
         private bool InstitutionExists(int id)

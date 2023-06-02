@@ -2,6 +2,8 @@
     overflow-x: hidden;
 }
 
+
+
 #wrapper {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
@@ -43,6 +45,14 @@
     position: absolute;
     margin-right: -250px;
 }
+
+/*Container*/
+.containerInstitutionSearch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 
 /* Sidebar Styles */

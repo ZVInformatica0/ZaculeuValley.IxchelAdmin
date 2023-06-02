@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -32,6 +33,31 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["IdSortParm"] = sortOrder == "Id" ? "id_desc" : "Id";
             ViewData["EnabledSortParm"] = sortOrder == "Enabled" ? "enabled_desc" : "Enabled";
+            ViewData["IdInstitutionParm"] = sortOrder == "Idinstitution" ? "idinstitution_desc" : "Idinstitution";
+            //ViewData["FacilityCodeParm"] = sortOrder == "FacilityCode" ? "facilitycode_desc" : "FacilityCode" ?? "FacilityCode";
+            ViewData["FacilityCodeParm"] = sortOrder == "FacilityCode" ? "facilitycode_desc" : "FacilityCode";
+
+            try
+            {
+                ViewData["FacilityCodeParm"] = sortOrder == "FacilityCode" ? "facilitycode_desc" : "FacilityCode";
+                if (ViewData["FacilityCodeParm"] == null)
+                {
+                    // Handle si es null
+                    ViewData["FacilityCodeParm"] = 0;
+                }
+            }
+            catch (SqlNullValueException ex)
+            {
+                // Handle de la exception
+                Console.WriteLine(ex.Message);
+
+            }
+
+
+            ViewData["IdfacilityTypeParm"] = sortOrder == "IdfacilityType" ? "idfacilitytype_desc" : "IdfacilityType";
+
+            ViewData["AreaCodeParm"] = sortOrder == "AreaCode" ? "areacode_desc" : "AreaCode";
+            ViewData["DistrictCodeParm"] = sortOrder == "DistrictCode" ? "districtcode_desc" : "DistrictCode";
 
             if (searchString != null)
             {
@@ -86,6 +112,39 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     break;
                 case "Enabled":
                     facilities = facilities.OrderBy(i => i.Enabled);
+                    break;
+                case "enabled_desc":
+                    facilities = facilities.OrderByDescending(i => i.Enabled);
+                    break;
+                case "Idinstitution":
+                    facilities = facilities.OrderBy(i => i.Idinstitution);
+                    break;
+                case "idinstitution_desc":
+                    facilities = facilities.OrderByDescending(i => i.Idinstitution);
+                    break;
+                case "FacilityCode":
+                    facilities = facilities.OrderBy(i => i.FacilityCode);
+                    break;
+                case "facilitycode_desc":
+                    facilities = facilities.OrderByDescending(i => i.FacilityCode);
+                    break;
+                case "IdfacilityType":
+                    facilities = facilities.OrderBy(i => i.IdfacilityType);
+                    break;
+                case "idfacilitytype_desc":
+                    facilities = facilities.OrderByDescending(i => i.IdfacilityType);
+                    break;
+                case "AreaCode":
+                    facilities = facilities.OrderBy(i => i.AreaCode);
+                    break;
+                case "areacode_desc":
+                    facilities = facilities.OrderByDescending(i => i.AreaCode);
+                    break;
+                case "DistrictCode":
+                    facilities = facilities.OrderBy(i => i.DistrictCode);
+                    break;
+                case "districtcode_desc":
+                    facilities = facilities.OrderByDescending(i => i.DistrictCode);
                     break;
                 default:
                     facilities = facilities.OrderBy(i => i.FacilityName);
