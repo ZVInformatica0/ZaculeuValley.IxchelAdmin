@@ -38,8 +38,6 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             //ViewData["FacilityCodeParm"] = sortOrder == "FacilityCode" ? "facilitycode_desc" : "FacilityCode" ?? "FacilityCode";
             ViewData["FacilityCodeParm"] = sortOrder == "FacilityCode" ? "facilitycode_desc" : "FacilityCode";
 
-            ViewData["CurrentPage"] = "Instalaciones";
-
             try
             {
                 ViewData["FacilityCodeParm"] = sortOrder == "FacilityCode" ? "facilitycode_desc" : "FacilityCode";

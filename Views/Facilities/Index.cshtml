@@ -4,15 +4,20 @@
 
 @{
     ViewData["Title"] = "Index";
-    string institutionName = ViewBag.InstitutionName;
+    var institutionName = ViewBag.InstitutionName as string;
 }
 
-<div class="breadcrumb">
-    <a href="@Url.Action("Selection", new { id = item.institutionName })">@Html.DisplayFor(modelItem => item.InstitutionName)</a>
-@*    <span>@(InstitutionName ?? "Home")</span> *@/
-    <span>Instalaciones</span>
-</div>
-
+<!-- Breadcrumb navigation -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/Home">Inicio</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            @institutionName
+        </li>
+    </ol>
+</nav>
 
 <h1>Instalaciones</h1>
 
