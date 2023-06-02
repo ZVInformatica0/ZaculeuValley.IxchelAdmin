@@ -72,6 +72,8 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             //IQueryable<Facility> facilities = _context.Facilities.Where(i => i.Deleted == false);
             // Retrieve the stored Institution ID from session
             int? institutionId = HttpContext.Session.GetInt32("InstitutionId");
+            string? institutionName = HttpContext.Session.GetString("InstitutionName");
+
 
             // Use the Institution ID to filter facilities
             //IQueryable<Facility> facilities = _context.Facilities

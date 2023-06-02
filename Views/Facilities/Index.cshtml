@@ -8,8 +8,8 @@
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/Home">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">@HttpContext.Session.GetString("InstitutionName")</li>
+        <li class="breadcrumb-item"><a href="/Home"> @Html.DisplayFor(modelItem => item.IdinstitutionNavigation.InstitutionName)</a></li>
+        <li class="breadcrumb-item active" aria-current="page"></li>
     </ol>
 </nav>
 
