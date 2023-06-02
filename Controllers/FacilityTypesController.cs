@@ -46,6 +46,8 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             //IQueryable<FacilityType> facilitytypes = _context.FacilityTypes.Where(i => i.Deleted == false);
 
             int? institutionId = HttpContext.Session.GetInt32("InstitutionId");
+            string? institutionName = HttpContext.Session.GetString("InstitutionName");
+            ViewBag.InstitutionName = institutionName;
 
             // Use the Institution ID to filter facilities
             IQueryable<FacilityType> facilitytypes = _context.FacilityTypes
