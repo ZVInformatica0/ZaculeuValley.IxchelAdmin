@@ -1,31 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ZV\\ZaculeuValley.IxchelAdmin\\ZaculeuValley.IxchelAdmin.csproj": {}
+    "D:\\ZV\\repos\\ZaculeuValley.IxchelAdmin.csproj": {}
   },
   "projects": {
-    "D:\\ZV\\ZaculeuValley.IxchelAdmin\\ZaculeuValley.IxchelAdmin.csproj": {
+    "D:\\ZV\\repos\\ZaculeuValley.IxchelAdmin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ZV\\ZaculeuValley.IxchelAdmin\\ZaculeuValley.IxchelAdmin.csproj",
+        "projectUniqueName": "D:\\ZV\\repos\\ZaculeuValley.IxchelAdmin.csproj",
         "projectName": "ZaculeuValley.IxchelAdmin",
-        "projectPath": "D:\\ZV\\ZaculeuValley.IxchelAdmin\\ZaculeuValley.IxchelAdmin.csproj",
-        "packagesPath": "C:\\Users\\Dev\\.nuget\\packages\\",
-        "outputPath": "D:\\ZV\\ZaculeuValley.IxchelAdmin\\obj\\",
+        "projectPath": "D:\\ZV\\repos\\ZaculeuValley.IxchelAdmin.csproj",
+        "packagesPath": "C:\\Users\\estua\\.nuget\\packages\\",
+        "outputPath": "D:\\ZV\\repos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Dev\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\estua\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -45,6 +46,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.5, )"

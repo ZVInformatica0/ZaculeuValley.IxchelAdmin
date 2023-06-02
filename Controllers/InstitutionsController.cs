@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ZaculeuValley.IxchelAdmin.Models;
 using PagedList;
+using Microsoft.AspNetCore.Http;
 
 namespace ZaculeuValley.IxchelAdmin.Controllers
 {
@@ -231,8 +232,8 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
 
         public IActionResult Selection(int id)
         {
-            // Save the Institution ID or perform any necessary logic
-
+            // Guarae la ID de la institución pa realizar cualquier lógica necesaria
+            HttpContext.Session.SetInt32("InstitutionId", id);
             // Redirect to a new view passing the Institution ID
             //return RedirectToAction("Home", new { id = id });
             //return Redirect($"/Home/{id}");

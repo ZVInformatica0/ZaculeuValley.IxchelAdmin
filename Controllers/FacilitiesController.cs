@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ZaculeuValley.IxchelAdmin.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace ZaculeuValley.IxchelAdmin.Controllers
 {
@@ -68,7 +69,14 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                 searchString = currentFilter;
             }
 
-            IQueryable<Facility> facilities = _context.Facilities.Where(i => i.Deleted == false);
+            //IQueryable<Facility> facilities = _context.Facilities.Where(i => i.Deleted == false);
+            // Retrieve the stored Institution ID from session
+            int? institutionId = HttpContext.Session.GetInt32("InstitutionId");
+
+            // Use the Institution ID to filter facilities
+            IQueryable<Facility> facilities = _context.Facilities
+                .Where(f => f.Idinstitution == institutionId && f.Deleted == false);
+
 
             //IQueryable<Facility> facilities = _context.Facilities
             //.Where(i => i.Deleted == false)
