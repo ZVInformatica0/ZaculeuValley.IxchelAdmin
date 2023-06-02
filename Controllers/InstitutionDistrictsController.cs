@@ -222,7 +222,8 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             var institutionDistrict = await _context.InstitutionDistricts.FindAsync(id);
             if (institutionDistrict != null)
             {
-                _context.InstitutionDistricts.Remove(institutionDistrict);
+                //_context.InstitutionDistricts.Remove(institutionDistrict);
+                institutionDistrict.Deleted = true;
             }
             
             await _context.SaveChangesAsync();

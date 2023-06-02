@@ -73,10 +73,6 @@
                 }
                 @*@Html.DisplayNameFor(model => model.Enabled)*@
             </th>
-            <th>
-                Borrado
-                @*@Html.DisplayNameFor(model => model.Deleted)*@
-            </th>
             
             <th></th>
         </tr>
@@ -94,7 +90,7 @@
                 @Html.DisplayFor(modelItem => item.IdinstitutionNavigation.Idinstitution)
             </td>*@
             <td>
-                @Html.DisplayFor(modelItem => item.AreaCode)
+                    @Html.DisplayFor(modelItem => item.IdinstitutionAreaNavigation.AreaName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DistrictCode)
@@ -105,12 +101,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Enabled)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Deleted)
-            </td>
             
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdinstitutionDistrict">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdinstitutionDistrict">Eliminar</a> |
                 <a asp-action="Details" asp-route-id="@item.IdinstitutionDistrict">Detalles</a> @*|
                 <a asp-action="Delete" asp-route-id="@item.IdinstitutionDistrict">Borrar</a>*@
             </td>
