@@ -8,8 +8,8 @@
 }
 
 <div class="breadcrumb">
-    <a href="/">Home</a> /
-    <span>@(institutionName ?? "Home")</span> /
+    <a href="@Url.Action("Selection", new { id = item.institutionName })">@Html.DisplayFor(modelItem => item.InstitutionName)</a>
+@*    <span>@(InstitutionName ?? "Home")</span> *@/
     <span>Instalaciones</span>
 </div>
 
