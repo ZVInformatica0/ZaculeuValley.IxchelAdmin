@@ -74,8 +74,15 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             int? institutionId = HttpContext.Session.GetInt32("InstitutionId");
 
             // Use the Institution ID to filter facilities
+            //IQueryable<Facility> facilities = _context.Facilities
+            //    .Where(f => f.Idinstitution == institutionId && f.Deleted == false);
+
             IQueryable<Facility> facilities = _context.Facilities
-                .Where(f => f.Idinstitution == institutionId && f.Deleted == false);
+                .Where(f => f.Idinstitution == institutionId && f.Deleted == false)
+                .Include(f => f.IdinstitutionNavigation)
+                .Include(f => f.IddistrictNavigation)
+                    .ThenInclude(d => d.IdinstitutionAreaNavigation)
+                .Include(f => f.IdfacilityTypeNavigation);
 
 
             //IQueryable<Facility> facilities = _context.Facilities
