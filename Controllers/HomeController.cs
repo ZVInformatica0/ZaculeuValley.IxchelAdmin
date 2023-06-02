@@ -27,6 +27,9 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                 ApiUrl = Url.Action("Index", c.Name.Replace("Controller", ""), null, Request.Scheme, Request.Host.Value)
             }).ToList();
 
+            string? institutionName = HttpContext.Session.GetString("InstitutionName");
+            ViewBag.InstitutionName = institutionName;
+
             return View(viewModelList);
         }
 
