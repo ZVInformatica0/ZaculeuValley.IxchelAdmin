@@ -232,19 +232,16 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
 
         public IActionResult Selection(int id)
         {
-            // Guarae la ID de la institución pa realizar cualquier lógica necesaria
             HttpContext.Session.SetInt32("InstitutionId", id);
             var institution = _context.Institutions.FirstOrDefault(i => i.Idinstitution == id);
             if (institution != null)
             {
                 HttpContext.Session.SetString("InstitutionName", institution.InstitutionName);
-                ViewBag.InstitutionName = institution.InstitutionName;
             }
-            // Redirect to a new view passing the Institution ID
-            //return RedirectToAction("Home", new { id = id });
-            //return Redirect($"/Home/{id}");
-            return Redirect($"/Home");
+
+            return RedirectToAction("Home");
         }
+
 
         private bool InstitutionExists(int id)
         {
