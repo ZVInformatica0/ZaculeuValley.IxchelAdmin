@@ -86,31 +86,27 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-@*            <td>
-                @Html.DisplayFor(modelItem => item.IdinstitutionArea)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.AreaCode)
-            </td>
-            <td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AreaCode)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.IdinstitutionCountryNavigation.CountryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AreaName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Enabled)
-            </td>
-            
-            <td>
-                <a asp-action="Delete" asp-route-id="@item.IdinstitutionArea">Eliminar</a> |
-                <a asp-action="Details" asp-route-id="@item.IdinstitutionArea">Detalles</a>@* |
-                <a asp-action="Delete" asp-route-id="@item.IdinstitutionArea">Borrar</a>*@
-            </td>
-        </tr>
-}
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AreaName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Enabled)
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.IdinstitutionArea">Eliminar</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdinstitutionArea">Detalles</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 

@@ -54,10 +54,9 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
 
 
             IQueryable<InstitutionArea> areas = _context.InstitutionAreas
-                .Where(f => f.Idinstitution == institutionId && f.Deleted == false)
-                .Include(f => f.IdinstitutionNavigation)
-                .Include(f => f.IdinstitutionCountryNavigation)
-                .Include(d => d.IdinstitutionAreaNavigation)
+                .Where(a => a.Idinstitution == institutionId && a.Deleted == false)
+                .Include(a => a.IdinstitutionNavigation)
+                .Include(a => a.IdinstitutionCountryNavigation);
 
             //if (!String.IsNullOrEmpty(searchString))
             //{
