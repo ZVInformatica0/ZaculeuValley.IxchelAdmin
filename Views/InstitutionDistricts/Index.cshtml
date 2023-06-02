@@ -24,7 +24,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+@*            <th>
                 @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "id_desc")
                 {
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID ↓</a>
@@ -33,7 +33,7 @@
                 {
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID ↑</a>
                 }
-            </th>
+            </th>*@
             @*<th>
                 ID Area
                
@@ -43,7 +43,15 @@
                
             </th>*@
             <th>
-                Código Área
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "id_desc")
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Área ↓</a>
+                }
+                else
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Área ↑</a>
+                }
+                
                 @*@Html.DisplayNameFor(model => model.IdinstitutionNavigation)*@
             </th>
             
@@ -78,37 +86,30 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdinstitutionDistrict)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.IdinstitutionAreaNavigation.IdinstitutionArea)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdinstitutionNavigation.Idinstitution)
-            </td>*@
-            <td>
-                    @Html.DisplayFor(modelItem => item.IdinstitutionAreaNavigation.AreaName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DistrictCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DistrictName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Enabled)
-            </td>
-            
-            <td>
-                <a asp-action="Delete" asp-route-id="@item.IdinstitutionDistrict">Eliminar</a> |
-                <a asp-action="Details" asp-route-id="@item.IdinstitutionDistrict">Detalles</a> @*|
-                <a asp-action="Delete" asp-route-id="@item.IdinstitutionDistrict">Borrar</a>*@
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdinstitutionDistrict)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdinstitutionAreaNavigation.AreaCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DistrictCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DistrictName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Enabled)
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.IdinstitutionDistrict">Eliminar</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdinstitutionDistrict">Detalles</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 

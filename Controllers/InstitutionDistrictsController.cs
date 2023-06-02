@@ -41,8 +41,13 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             int? institutionId = HttpContext.Session.GetInt32("InstitutionId");
 
             // Use the Institution ID to filter facilities
+            //IQueryable<InstitutionDistrict> districts = _context.InstitutionDistricts
+            //    .Where(f => f.Idinstitution == institutionId && f.Deleted == false);
+
             IQueryable<InstitutionDistrict> districts = _context.InstitutionDistricts
-                .Where(f => f.Idinstitution == institutionId && f.Deleted == false);
+            .Include(d => d.IdinstitutionAreaNavigation)
+            .Where(d => d.Idinstitution == institutionId && d.Deleted == false);
+
 
             //if (!String.IsNullOrEmpty(searchString))
             //{
@@ -65,10 +70,10 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     districts = districts.OrderByDescending(i => i.DistrictName);
                     break;
                 case "Id":
-                    districts = districts.OrderBy(i => i.IdinstitutionDistrict);
+                    districts = districts.OrderBy(i => i.IdinstitutionAreaNavigation.AreaCode);
                     break;
                 case "id_desc":
-                    districts = districts.OrderByDescending(i => i.IdinstitutionDistrict);
+                    districts = districts.OrderByDescending(i => i.IdinstitutionAreaNavigation.AreaCode);
                     break;
                 case "Enabled":
                     districts = districts.OrderBy(i => i.Enabled);
