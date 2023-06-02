@@ -59,10 +59,10 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     countries = countries.OrderByDescending(i => i.CountryName);
                     break;
                 case "Id":
-                    countries = countries.OrderBy(i => i.IdinstitutionCountry);
+                    countries = countries.OrderBy(i => i.CountryCode);
                     break;
                 case "id_desc":
-                    countries = countries.OrderByDescending(i => i.IdinstitutionCountry);
+                    countries = countries.OrderByDescending(i => i.CountryCode);
                     break;
                 case "Enabled":
                     countries = countries.OrderBy(i => i.Enabled);
@@ -210,7 +210,8 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             var institutionCountry = await _context.InstitutionCountries.FindAsync(id);
             if (institutionCountry != null)
             {
-                _context.InstitutionCountries.Remove(institutionCountry);
+                //_context.InstitutionCountries.Remove(institutionCountry);
+                institutionCountry.Deleted = true;
             }
             
             await _context.SaveChangesAsync();
