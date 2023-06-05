@@ -31,7 +31,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+            <th class="text-center">
                 @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "id_desc")
                 {
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID ↓</a>
@@ -41,11 +41,11 @@
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID ↑</a>
                 }
             </th>
-            <th>
+            <th class="text-center">
                 Código Tipo
                 @*@Html.DisplayNameFor(model => model.FacilityTypeCode)*@
             </th>
-            <th>
+            <th class="text-center">
                 @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "name_desc")
                 {
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Nombre Tipo ↓</a>
@@ -56,7 +56,7 @@
                 }
                 @*@Html.DisplayNameFor(model => model.FacilityTypeName)*@
             </th>
-            <th>
+            <th class="text-center">
                 @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "id_desc")
                 {
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["EnabledSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Hábilitado ↓</a>
@@ -67,29 +67,29 @@
                 }
                 @*@Html.DisplayNameFor(model => model.Enabled)*@
             </th>
-            <th></th>
+            <th class="text-center"></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.IdfacilityType)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.FacilityTypeCode)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.FacilityTypeName)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.Enabled)
             </td>
             
-            @*<td>
+            @*<td class="text-center">
                 @Html.DisplayFor(modelItem => item.IdinstitutionNavigation.Idinstitution)
             </td>*@
-            <td>
+            <td class="text-center">
                 <a asp-action="Delete" asp-route-id="@item.IdfacilityType">Eliminar</a> |
                 <a asp-action="Details" asp-route-id="@item.IdfacilityType">Details</a> @*|
                 <a asp-action="Delete" asp-route-id="@item.IdfacilityType">Delete</a>*@

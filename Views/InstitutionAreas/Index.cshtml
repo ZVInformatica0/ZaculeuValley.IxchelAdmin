@@ -32,7 +32,7 @@
 <table class="table">
     <thead>
         <tr>
-@*            <th>
+@*            <th class="text-center">
                 @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "id_desc")
                 {
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID ↓</a>
@@ -42,7 +42,7 @@
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID ↑</a>
                 }
             </th>*@
-            <th>
+            <th class="text-center">
                 @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "areacode_desc")
                 {
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["AreaCodeSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Área ↓</a>
@@ -53,7 +53,7 @@
                 }          
                 @*@Html.DisplayNameFor(model => model.AreaCode)*@
             </th>
-            <th>
+            <th class="text-center">
                 @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "countrycode_desc")
                 {
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["CountryCodeSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID Páis ↓</a>
@@ -66,7 +66,7 @@
                 @*@Html.DisplayNameFor(model => model.IdinstitutionCountryNavigation)*@
             </th>
             
-            <th>
+            <th class="text-center">
                 @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "name_desc")
                 {
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Nombre Institución ↓</a>
@@ -78,7 +78,7 @@
                 @*@Html.DisplayNameFor(model => model.AreaName)*@
             </th>
             
-            <th>
+            <th class="text-center">
                 @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "id_desc")
                 {
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["EnabledSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Hábilitado ↓</a>
@@ -89,26 +89,26 @@
                 }
                 @*@Html.DisplayNameFor(model => model.Enabled)*@
             </th>
-            <th></th>
+            <th class="text-center"></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                <td class="text-center">
                     @Html.DisplayFor(modelItem => item.AreaCode)
                 </td>
-                <td>
+                <td class="text-center">
                     @Html.DisplayFor(modelItem => item.IdinstitutionCountryNavigation.CountryName)
                 </td>
-                <td>
+                <td class="text-center">
                     @Html.DisplayFor(modelItem => item.AreaName)
                 </td>
-                <td>
+                <td class="text-center">
                     @Html.DisplayFor(modelItem => item.Enabled)
                 </td>
-                <td>
+                <td class="text-center">
                     <a asp-action="Delete" asp-route-id="@item.IdinstitutionArea">Eliminar</a> |
                     <a asp-action="Details" asp-route-id="@item.IdinstitutionArea">Detalles</a>
                 </td>

@@ -36,7 +36,12 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             ViewData["EnabledSortParm"] = sortOrder == "Enabled" ? "enabled_desc" : "Enabled";
             ViewData["IdInstitutionParm"] = sortOrder == "Idinstitution" ? "idinstitution_desc" : "Idinstitution";
             //ViewData["FacilityCodeParm"] = sortOrder == "FacilityCode" ? "facilitycode_desc" : "FacilityCode" ?? "FacilityCode";
-            ViewData["FacilityCodeParm"] = sortOrder == "FacilityCode" ? "facilitycode_desc" : "FacilityCode";
+            ViewData["FacilityCodeParm"] = String.IsNullOrEmpty(sortOrder) ? "facilitycode_desc" : "";
+
+
+            ViewData["IdfacilityTypeParm"] =  sortOrder == "IdfacilityType" ? "idfacilitytype_desc" : "IdfacilityType";
+            ViewData["AreaCodeParm"] = sortOrder == "AreaCode" ? "areacode_desc" : "AreaCode";
+            ViewData["DistrictCodeParm"] = sortOrder == "DistrictCode" ? "districtcode_desc" : "DistrictCode";
 
             try
             {
@@ -55,10 +60,7 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             }
 
 
-            ViewData["IdfacilityTypeParm"] = sortOrder == "IdfacilityType" ? "idfacilitytype_desc" : "IdfacilityType";
-
-            ViewData["AreaCodeParm"] = sortOrder == "AreaCode" ? "areacode_desc" : "AreaCode";
-            ViewData["DistrictCodeParm"] = sortOrder == "DistrictCode" ? "districtcode_desc" : "DistrictCode";
+            
 
             if (searchString != null)
             {
@@ -142,9 +144,11 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     break;
                 case "FacilityCode":
                     facilities = facilities.OrderBy(i => i.FacilityCode);
+                    ViewData["FacilityCodeParm"] = "facilitycode_desc";
                     break;
                 case "facilitycode_desc":
                     facilities = facilities.OrderByDescending(i => i.FacilityCode);
+                    ViewData["FacilityCodeParm"] = "FacilityCode";
                     break;
                 case "IdfacilityType":
                     facilities = facilities.OrderBy(i => i.IdfacilityType);

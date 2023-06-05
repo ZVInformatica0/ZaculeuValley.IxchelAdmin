@@ -30,7 +30,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+            <th class="text-center">
                 @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "id_desc")
                 {
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código País ↓</a>
@@ -42,7 +42,7 @@
                 
                 @*@Html.DisplayNameFor(model => model.CountryCode)*@
             </th>
-            <th>
+            <th class="text-center">
                 @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "name_desc")
                 {
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Nombre País ↓</a>
@@ -53,15 +53,15 @@
                 }
                 @*@Html.DisplayNameFor(model => model.CountryName)*@
             </th>
-            <th>
+            <th class="text-center">
                 Prefijo Telefónico
                 @*@Html.DisplayNameFor(model => model.CountryPhoneCode)*@
             </th>
-            <th>
+            <th class="text-center">
                 Dominio
                 @*@Html.DisplayNameFor(model => model.CountryDomainName)*@
             </th>
-            <th>
+            <th class="text-center">
                 @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "id_desc")
                 {
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["EnabledSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Hábilitado ↓</a>
@@ -73,30 +73,30 @@
                 @*@Html.DisplayNameFor(model => model.Enabled)*@
             </th>
            
-            <th></th>
+            <th class="text-center"></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
 
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.CountryCode)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.CountryName)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.CountryPhoneCode)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.CountryDomainName)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.Enabled)
             </td>
             
-            <td>
+            <td class="text-center">
                 <a asp-action="Delete" asp-route-id="@item.IdinstitutionCountry">Eliminar</a> |
                 <a asp-action="Details" asp-route-id="@item.IdinstitutionCountry">Detalles</a> @*|
                 <a asp-action="Delete" asp-route-id="@item.IdinstitutionCountry">Borrar</a>*@

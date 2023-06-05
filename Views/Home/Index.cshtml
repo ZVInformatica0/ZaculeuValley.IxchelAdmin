@@ -87,16 +87,16 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Nombre</th>
-            <th>Acción</th>
+            <th class="text-center">Nombre</th>
+            <th class="text-center">Acción</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var controller in Model.OrderByDescending(c => c.DisplayedName))
         {
             <tr>
-                <td>@controller.DisplayedName</td>
-                <td><a href="@controller.ApiUrl">Editar</a></td>
+                <td class="text-center">@controller.DisplayedName</td>
+                <td class="text-center"><a href="@controller.ApiUrl">Editar</a></td>
             </tr>
         }
     </tbody>
