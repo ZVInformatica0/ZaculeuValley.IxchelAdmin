@@ -16,10 +16,6 @@ public partial class IxchelWebpruebasContext : DbContext
     {
     }
 
-    public virtual DbSet<User> Users { get; set; }
-
-    public virtual DbSet<UserRol> UserRols { get; set; }
-
     public virtual DbSet<Facility> Facilities { get; set; }
 
     public virtual DbSet<FacilityType> FacilityTypes { get; set; }
@@ -283,40 +279,6 @@ public partial class IxchelWebpruebasContext : DbContext
                 .HasColumnName("message");
         });
 
-        modelBuilder.Entity<User>(entity =>
-        {
-            entity.HasKey(e => e.Iduser);
-
-            entity.ToTable("User");
-
-            entity.Property(e => e.Iduser).HasColumnName("IDUser");
-            entity.Property(e => e.Email)
-                .HasMaxLength(100)
-                .IsUnicode(false);
-            entity.Property(e => e.Password)
-                .HasMaxLength(100)
-                .IsUnicode(false);
-        });
-
-        modelBuilder.Entity<UserRol>(entity =>
-        {
-            entity.HasKey(e => e.IduserRol);
-
-            entity.ToTable("UserRol");
-
-            entity.Property(e => e.IduserRol).HasColumnName("IDUserRol");
-            entity.Property(e => e.Iduser).HasColumnName("IDUser");
-            entity.Property(e => e.UserRolDescription)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.UserRolName)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-
-            entity.HasOne(d => d.IduserNavigation).WithMany(p => p.UserRols)
-                .HasForeignKey(d => d.Iduser)
-                .HasConstraintName("FK_UserRol_User");
-        });
 
 
         OnModelCreatingPartial(modelBuilder);
