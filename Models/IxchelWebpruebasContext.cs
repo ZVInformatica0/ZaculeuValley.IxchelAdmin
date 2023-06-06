@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using ZaculeuValley.IxchelAdmin.NewModels;
+using ZaculeuValley.IxchelAdmin.Models;
 
 namespace ZaculeuValley.IxchelAdmin.Models;
 
