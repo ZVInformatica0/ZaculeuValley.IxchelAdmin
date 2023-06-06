@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ZaculeuValley.IxchelAdmin.NewModels;
+namespace ZaculeuValley.IxchelAdmin.Models;
 
 public partial class PermissionRol
 {

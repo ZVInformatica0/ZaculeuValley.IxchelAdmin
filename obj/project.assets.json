@@ -11119,6 +11119,7 @@
     "net7.0": [
       "Microsoft.AspNetCore.Http >= 2.2.2",
       "Microsoft.AspNetCore.Session >= 2.2.0",
+      "Microsoft.EntityFrameworkCore >= 7.0.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.5",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.5",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 7.0.6",
@@ -11126,23 +11127,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dev\\.nuget\\packages\\": {},
+    "C:\\Users\\SOPORTE\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ZV\\ZaculeuValley.IxchelAdmin\\ZaculeuValley.IxchelAdmin.csproj",
+      "projectUniqueName": "C:\\Users\\SOPORTE\\Documents\\ZV\\ZaculeuValley.IxchelAdmin.csproj",
       "projectName": "ZaculeuValley.IxchelAdmin",
-      "projectPath": "D:\\ZV\\ZaculeuValley.IxchelAdmin\\ZaculeuValley.IxchelAdmin.csproj",
-      "packagesPath": "C:\\Users\\Dev\\.nuget\\packages\\",
-      "outputPath": "D:\\ZV\\ZaculeuValley.IxchelAdmin\\obj\\",
+      "projectPath": "C:\\Users\\SOPORTE\\Documents\\ZV\\ZaculeuValley.IxchelAdmin.csproj",
+      "packagesPath": "C:\\Users\\SOPORTE\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\SOPORTE\\Documents\\ZV\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Dev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\SOPORTE\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -11177,6 +11178,10 @@
           "Microsoft.AspNetCore.Session": {
             "target": "Package",
             "version": "[2.2.0, )"
+          },
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[7.0.5, )"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
