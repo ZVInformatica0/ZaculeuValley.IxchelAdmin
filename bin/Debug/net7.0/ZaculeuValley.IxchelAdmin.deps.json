@@ -10,6 +10,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Http": "2.2.2",
           "Microsoft.AspNetCore.Session": "2.2.0",
+          "Microsoft.EntityFrameworkCore": "7.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.5",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.6",

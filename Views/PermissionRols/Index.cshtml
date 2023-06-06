@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ZaculeuValley.IxchelAdmin.Models.PermissionRol>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Read)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Add)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Write)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Delete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Print)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdpermissionNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdrolNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Read)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Add)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Write)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Delete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Print)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdpermissionNavigation.Idpermission)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdrolNavigation.Idrol)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdpermissionRol">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdpermissionRol">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdpermissionRol">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
