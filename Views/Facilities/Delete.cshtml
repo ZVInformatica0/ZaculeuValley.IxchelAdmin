@@ -4,45 +4,51 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Borrar</h1>
+<h1>Eliminar</h1>
 
 <h3>¿Estás seguro de que quieres eliminar esta Instalación?</h3>
 <div>
-    <h4>Facility</h4>
+    @*<h4>Facility</h4>*@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FacilityCode)
+            Código Instalación
+            @*@Html.DisplayNameFor(model => model.FacilityCode)*@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.FacilityCode)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FacilityName)
+            Nombre 
+            @*@Html.DisplayNameFor(model => model.FacilityName)*@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.FacilityName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Enabled)
+            Habilitado
+            @*@Html.DisplayNameFor(model => model.Enabled)*@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Enabled)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Deleted)
+            Eliminado
+            @*@Html.DisplayNameFor(model => model.Deleted)*@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Deleted)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AreaCode)
+            Código Área
+            @*@Html.DisplayNameFor(model => model.AreaCode)*@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.AreaCode)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DistrictCode)
+            Código Distrito
+            @*@Html.DisplayNameFor(model => model.DistrictCode)*@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.DistrictCode)

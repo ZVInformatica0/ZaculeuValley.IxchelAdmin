@@ -6,31 +6,34 @@
 
 <h1>Eliminar</h1>
 
-<h3>¿Estás seguro de que quieres eliminar esta Área?</h3>
+<h3>¿Estás seguro de que quieres eliminar este tipo de instalación?</h3>
 <div>
-    <h4>Tipos de Instalaciones</h4>
+    @*<h4>Tipos de Instalaciones</h4>*@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FacilityTypeCode)
+            Código Tipo Instalación
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.FacilityTypeCode)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FacilityTypeName)
+            Nombre Tipo Instalación
+            @*@Html.DisplayNameFor(model => model.FacilityTypeName)*@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.FacilityTypeName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Enabled)
+            Habilitado
+            @*@Html.DisplayNameFor(model => model.Enabled)*@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Enabled)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Deleted)
+            Eliminado
+            @*@Html.DisplayNameFor(model => model.Deleted)*@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Deleted)
