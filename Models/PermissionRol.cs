@@ -5,6 +5,8 @@ namespace ZaculeuValley.IxchelAdmin.Models;
 
 public partial class PermissionRol
 {
+    public int IdpermissionRol { get; set; }
+
     public int? Idrol { get; set; }
 
     public int? Idpermission { get; set; }
