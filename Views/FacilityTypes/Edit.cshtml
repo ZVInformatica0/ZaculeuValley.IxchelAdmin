@@ -14,30 +14,30 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="IdfacilityType" />
             <div class="form-group">
-                <label asp-for="Idinstitution" class="control-label"></label>
+                <label asp-for="Idinstitution" class="control-label">ID Institución</label>
                 <select asp-for="Idinstitution" class="form-control" asp-items="ViewBag.Idinstitution"></select>
                 <span asp-validation-for="Idinstitution" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FacilityTypeCode" class="control-label"></label>
+                <label asp-for="FacilityTypeCode" class="control-label">Codigo tipo institución</label>
                 <input asp-for="FacilityTypeCode" class="form-control" />
                 <span asp-validation-for="FacilityTypeCode" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FacilityTypeName" class="control-label"></label>
+                <label asp-for="FacilityTypeName" class="control-label">Nombre tipo institución</label>
                 <input asp-for="FacilityTypeName" class="form-control" />
                 <span asp-validation-for="FacilityTypeName" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Enabled" /> @Html.DisplayNameFor(model => model.Enabled)
+                <label class="form-check-label"> 
+                    <input class="form-check-input" asp-for="Enabled" /> Habilitado @*@Html.DisplayNameFor(model => model.Enabled)*@
                 </label>
             </div>
-            <div class="form-group form-check">
+           @* <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Deleted" /> @Html.DisplayNameFor(model => model.Deleted)
+                    <input class="form-check-input" asp-for="Deleted" /> Eliminado @*@Html.DisplayNameFor(model => model.Deleted)*@
                 </label>
-            </div>
+            </div>*@
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Serialization;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -25,6 +26,7 @@ public partial class Institution
     /// Internal code for table Institution
     /// </summary>
     /// 
+
     public string InstitutionCode { get; set; } = null!;
 
     public bool Enabled { get; set; }
