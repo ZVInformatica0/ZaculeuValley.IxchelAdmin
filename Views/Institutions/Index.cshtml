@@ -66,11 +66,11 @@
                 <th>
                     @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "institutioncode_desc")
                     {
-                        <a asp-action="Index" asp-route-sortOrder="@ViewData["InstitutionCodeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Institución ↓</a>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["InstitutionCodeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID Institución ↓</a>
                     }
                     else
                     {
-                        <a asp-action="Index" asp-route-sortOrder="@ViewData["InstitutionCodeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Institución ↑</a>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["InstitutionCodeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID Institución ↑</a>
                     }
 
                 </th>
@@ -106,7 +106,7 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.InstitutionCode)
+                        @Html.DisplayFor(modelItem => item.Idinstitution)
                     </td>
                     <td>
                         @*<a asp-action="Selection" asp-route-id="@item.Idinstitution"> @Html.DisplayFor(modelItem => item.InstitutionName)</a>*@

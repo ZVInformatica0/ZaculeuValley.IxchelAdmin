@@ -26,9 +26,8 @@ public partial class Institution
     /// Internal code for table Institution
     /// </summary>
     /// 
+
     [Required(ErrorMessage = "Por favor ingrese el código de la institución.")]
-    [MaxLength(50, ErrorMessage = "El nombre de la institución debe tener como máximo 50 digitos.")]
-    [RegularExpression("[0-50]*", ErrorMessage ="Solo se permiten numeros")]
     public string InstitutionCode { get; set; } = null!;
 
     public bool Enabled { get; set; }

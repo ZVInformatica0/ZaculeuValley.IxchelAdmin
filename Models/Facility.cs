@@ -25,10 +25,11 @@ public partial class Facility
     /// Internal Code for table Facility
     /// </summary>
     /// 
+    [StringLength(50, ErrorMessage = "El código de la instalación debe tener como máximo 50 caracteres.")]
     [Required(ErrorMessage = "Por favor ingrese el código de la instalación.")]
     //SE AGREGAN VALIDADCIONES NUEVAS DS-23
     [MaxLength(50, ErrorMessage = "El nombre de la institución debe tener como máximo 50 digitos.")]
-    [RegularExpression("[0-50]*", ErrorMessage = "Solo se permiten numeros")]
+    //[RegularExpression("[0-50]*", ErrorMessage = "Solo se permiten numeros")]
     public string? FacilityCode { get; set; }
 
     /// <summary>
@@ -69,4 +70,6 @@ public partial class Facility
     public virtual FacilityType? IdfacilityTypeNavigation { get; set; }
 
     public virtual Institution? IdinstitutionNavigation { get; set; }
+
+    public virtual InstitutionCountry? IdinstitutionCountryNavigation { get; set; }
 }
