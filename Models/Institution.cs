@@ -25,7 +25,6 @@ public partial class Institution
     /// Internal code for table Institution
     /// </summary>
     /// 
-    [Required(ErrorMessage = "Por favor ingrese el código de la institución.")]
     public string InstitutionCode { get; set; } = null!;
 
     public bool Enabled { get; set; }
