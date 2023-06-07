@@ -27,6 +27,10 @@ public partial class Institution
     /// </summary>
     /// 
 
+    [StringLength(50, ErrorMessage = "El codigo de la institución debe tener como maximo 50 caracteres  ")]
+    [Required(ErrorMessage = "Por favor ingrese el codigo de la institución.")]
+
+
     public string InstitutionCode { get; set; } = null!;
 
     public bool Enabled { get; set; }

@@ -16,6 +16,7 @@ public partial class InstitutionCountry
     /// </summary>
     public int? Idinstitution { get; set; }
 
+    
     [Required(ErrorMessage = "Por favor ingrese el código del país.")]
     public int? CountryCode { get; set; }
 

@@ -20,6 +20,7 @@ public partial class FacilityType
     /// Internal code for Facility Type (diff. each institution)
     /// </summary>
     /// 
+    [StringLength(50, ErrorMessage = "El codigo del tipo de instalación debe tener como máximo 50 caracteres.")]
     [Required(ErrorMessage = "Por favor ingrese el código para el tipo de instalación.")]
     public string? FacilityTypeCode { get; set; }
 

@@ -25,6 +25,7 @@ public partial class InstitutionArea
     /// Internal code for Table Institution Area
     /// </summary>
     /// 
+
     [Required(ErrorMessage = "Por favor ingrese el código del Área.")]
     public string AreaCode { get; set; } = null!;
 
