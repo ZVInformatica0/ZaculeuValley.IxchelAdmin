@@ -74,9 +74,9 @@
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["IdfacilityTypeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Tipo Instalación ↑</a>
                 }
             </th>
-            <th class="text-center">
+            @*<th class="text-center">
                 País
-            </th>
+            </th>*@
             <th class="text-center">
                 @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"]?.ToString() == "areacode_desc")
                 {
@@ -138,9 +138,9 @@
                 <td class="text-center">
                     @Html.DisplayFor(modelItem => item.IdfacilityTypeNavigation.FacilityTypeName)
                 </td>
-                <td class="text-center">
+                @*<td class="text-center">
                     @Html.DisplayFor(modelItem => item.IddistrictNavigation.IdinstitutionAreaNavigation.IdinstitutionCountryNavigation.CountryName)
-                </td>
+                </td>*@
                 <td class="text-center">
                     @Html.DisplayFor(modelItem => item.IddistrictNavigation.IdinstitutionAreaNavigation.AreaName)
                 </td>
