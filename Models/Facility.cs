@@ -25,6 +25,7 @@ public partial class Facility
     /// Internal Code for table Facility
     /// </summary>
     /// 
+    [StringLength(50, ErrorMessage = "El código de la instalación debe tener como máximo 50 caracteres.")]
     [Required(ErrorMessage = "Por favor ingrese el código de la instalación.")]
     public string? FacilityCode { get; set; }
 
