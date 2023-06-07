@@ -67,4 +67,6 @@ public partial class Facility
     public virtual FacilityType? IdfacilityTypeNavigation { get; set; }
 
     public virtual Institution? IdinstitutionNavigation { get; set; }
+
+    public virtual InstitutionCountry? IdinstitutionCountryNavigation { get; set; }
 }
