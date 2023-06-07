@@ -26,6 +26,9 @@ public partial class Facility
     /// </summary>
     /// 
     [Required(ErrorMessage = "Por favor ingrese el código de la instalación.")]
+    //SE AGREGAN VALIDADCIONES NUEVAS DS-23
+    [MaxLength(50, ErrorMessage = "El nombre de la institución debe tener como máximo 50 digitos.")]
+    [RegularExpression("[0-50]*", ErrorMessage = "Solo se permiten numeros")]
     public string? FacilityCode { get; set; }
 
     /// <summary>

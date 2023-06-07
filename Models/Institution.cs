@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Serialization;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -26,6 +27,8 @@ public partial class Institution
     /// </summary>
     /// 
     [Required(ErrorMessage = "Por favor ingrese el código de la institución.")]
+    [MaxLength(50, ErrorMessage = "El nombre de la institución debe tener como máximo 50 digitos.")]
+    [RegularExpression("[0-50]*", ErrorMessage ="Solo se permiten numeros")]
     public string InstitutionCode { get; set; } = null!;
 
     public bool Enabled { get; set; }
