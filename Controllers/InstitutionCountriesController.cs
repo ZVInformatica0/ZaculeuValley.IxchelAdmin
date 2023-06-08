@@ -140,7 +140,7 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             {
                 return NotFound();
             }
-            ViewData["Idinstitution"] = new SelectList(_context.Institutions, "Idinstitution", "Idinstitution", institutionCountry.Idinstitution);
+            ViewData["Idinstitution"] = new SelectList(_context.Institutions, "Idinstitution", "InstitutionName", institutionCountry.Idinstitution);
             return View(institutionCountry);
         }
 

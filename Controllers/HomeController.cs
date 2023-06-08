@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Reflection;
+using System.Security.Cryptography.Xml;
 using ZaculeuValley.IxchelAdmin.Models;
 
 namespace ZaculeuValley.IxchelAdmin.Controllers
@@ -52,6 +53,15 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                 .ToList();
 
             return controllerTypes;
+        }
+
+        [HttpGet]
+        public IEnumerable<Institution> GetInstitutions()
+        {
+            using (var context = new IxchelWebpruebasContext())
+            {
+                return context.Institutions.ToList();
+            }
         }
     }
 }

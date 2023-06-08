@@ -153,7 +153,7 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdinstitutionCountry"] = new SelectList(_context.InstitutionCountries, "IdinstitutionCountry", "IdinstitutionCountry", institutionArea.IdinstitutionCountry);
-            ViewData["Idinstitution"] = new SelectList(_context.Institutions, "Idinstitution", "Idinstitution", institutionArea.Idinstitution);
+            ViewData["Idinstitution"] = new SelectList(_context.Institutions, "Idinstitution", "InstitutionName", institutionArea.Idinstitution);
             return View(institutionArea);
         }
 
@@ -171,7 +171,7 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                 return NotFound();
             }
             ViewData["IdinstitutionCountry"] = new SelectList(_context.InstitutionCountries, "IdinstitutionCountry", "IdinstitutionCountry", institutionArea.IdinstitutionCountry);
-            ViewData["Idinstitution"] = new SelectList(_context.Institutions, "Idinstitution", "Idinstitution", institutionArea.Idinstitution);
+            ViewData["Idinstitution"] = new SelectList(_context.Institutions, "Idinstitution", "InstitutionName", institutionArea.Idinstitution);
             return View(institutionArea);
         }
 
