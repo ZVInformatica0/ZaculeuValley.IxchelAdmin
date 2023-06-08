@@ -74,17 +74,25 @@
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["IdfacilityTypeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Tipo Instalación ↑</a>
                 }
             </th>
-            @*<th class="text-center">
-                País
-            </th>*@
             <th class="text-center">
-                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"]?.ToString() == "areacode_desc")
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"]?.ToString() == "facilitycountry_desc")
                 {
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["AreaCodeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Área ↓</a>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["FacilityCountryParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">País ↓</a>
                 }
                 else
                 {
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["AreaCodeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Área ↑</a>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["FacilityCountryParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">País ↑</a>
+                }
+                
+            </th>
+            <th class="text-center">
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"]?.ToString() == "areacode_desc")
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["AreaCodeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Área ↓</a>
+                }
+                else
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["AreaCodeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Área ↑</a>
                 }
             </th>
             
@@ -138,9 +146,9 @@
                 <td class="text-center">
                     @Html.DisplayFor(modelItem => item.IdfacilityTypeNavigation.FacilityTypeName)
                 </td>
-                @*<td class="text-center">
+                <td class="text-center">
                     @Html.DisplayFor(modelItem => item.IddistrictNavigation.IdinstitutionAreaNavigation.IdinstitutionCountryNavigation.CountryName)
-                </td>*@
+                </td>
                 <td class="text-center">
                     @Html.DisplayFor(modelItem => item.IddistrictNavigation.IdinstitutionAreaNavigation.AreaName)
                 </td>
@@ -168,18 +176,23 @@
     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }
+<div class="">
+    <a asp-action="Index"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-pageNumber="@(Model.PageIndex - 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-default @prevDisabled">
+        Anterior
+    </a>
+    <p class="">
+        [ @Model.PageIndex / @Model.TotalPages ]
+    </p>
+    <a asp-action="Index"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-pageNumber="@(Model.PageIndex + 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-default mb-5 @nextDisabled">
+        Siguiente
+    </a>
+</div>
 
-<a asp-action="Index"
-   asp-route-sortOrder="@ViewData["CurrentSort"]"
-   asp-route-pageNumber="@(Model.PageIndex - 1)"
-   asp-route-currentFilter="@ViewData["CurrentFilter"]"
-   class="btn btn-default mb-5 @prevDisabled">
-    Anterior
-</a>
-<a asp-action="Index"
-   asp-route-sortOrder="@ViewData["CurrentSort"]"
-   asp-route-pageNumber="@(Model.PageIndex + 1)"
-   asp-route-currentFilter="@ViewData["CurrentFilter"]"
-   class="btn btn-default mb-5 @nextDisabled">
-    Siguiente
-</a>

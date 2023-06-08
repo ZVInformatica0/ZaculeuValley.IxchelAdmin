@@ -37,6 +37,7 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             ViewData["IdInstitutionParm"] = sortOrder == "Idinstitution" ? "idinstitution_desc" : "Idinstitution";
             //ViewData["FacilityCodeParm"] = sortOrder == "FacilityCode" ? "facilitycode_desc" : "FacilityCode" ?? "FacilityCode";
             ViewData["FacilityCodeParm"] = String.IsNullOrEmpty(sortOrder) ? "facilitycode_desc" : "";
+            ViewData["FacilityCountryParm"] = sortOrder == "Facilitycountry" ? "facility_desc" : "Facilitycountry";
 
 
             ViewData["IdfacilityTypeParm"] =  sortOrder == "IdfacilityType" ? "idfacilitytype_desc" : "IdfacilityType";
@@ -87,6 +88,7 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                 .Include(f => f.IdinstitutionNavigation)
                 .Include(f => f.IddistrictNavigation)
                     .ThenInclude(d => d.IdinstitutionAreaNavigation)
+                        .ThenInclude(a => a.IdinstitutionCountryNavigation)
                 .Include(f => f.IdfacilityTypeNavigation);
 
 
@@ -161,6 +163,12 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     break;
                 case "areacode_desc":
                     facilities = facilities.OrderByDescending(i => i.AreaCode);
+                    break;
+                case "Facilitycountry":
+                    facilities = facilities.OrderBy(i => i.IddistrictNavigation.IdinstitutionAreaNavigation.IdinstitutionCountryNavigation.CountryName);
+                    break;
+                case "facilitycountry_desc":
+                    facilities = facilities.OrderByDescending(i => i.IddistrictNavigation.IdinstitutionAreaNavigation.IdinstitutionCountryNavigation.CountryName);
                     break;
                 case "DistrictCode":
                     facilities = facilities.OrderBy(i => i.DistrictCode);
