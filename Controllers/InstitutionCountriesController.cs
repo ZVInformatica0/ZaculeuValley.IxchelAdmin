@@ -26,6 +26,8 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             ViewData["CurrentFilter"] = searchString;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["IdSortParm"] = sortOrder == "Id" ? "id_desc" : "Id";
+            ViewData["PhoneParm"] = sortOrder == "Phone" ? "phone_desc" : "Phone"; 
+            ViewData["DomainParm"] = sortOrder == "Domain" ? "domain_desc" : "Domain";
 
             if (searchString != null)
             {
@@ -65,6 +67,18 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                 case "id_desc":
                     countries = countries.OrderByDescending(i => i.CountryCode);
                     break;
+                case "Phone":
+                    countries = countries.OrderBy(i => i.CountryPhoneCode);
+                    break;
+                case "phone_desc":
+                    countries = countries.OrderByDescending(i => i.CountryPhoneCode);
+                    break;
+                case "Domain":
+                    countries = countries.OrderBy(i => i.CountryDomainName);
+                    break;
+                case "domain_desc":
+                    countries = countries.OrderByDescending(i => i.CountryDomainName);
+                    break;
                 case "Enabled":
                     countries = countries.OrderBy(i => i.Enabled);
                     break;
@@ -72,7 +86,7 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     countries = countries.OrderBy(i => i.CountryName);
                     break;
             }
-
+            
             int pageSize = 5;
             var pagedInstitutionCountries = await PaginatedList<InstitutionCountry>.CreateAsync(countries, pageNumber ?? 1, pageSize);
 

@@ -154,4 +154,10 @@
         Siguiente
     </a>
 </div>
+@*<div class="float-none mb-lg-5 pb-5 mt-3">
+    <a asp-action="Index" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-pageNumber="@(Model.PageIndex - 1)" asp-route-currentFilter="@ViewData["CurrentFilter"]" class="btn btn-default @prevDisabled d-inline">Anterior</a>
+    <p class="d-inline">[ @Model.PageIndex / <a asp-action="Index" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-pageNumber="@(Model.TotalPages)" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Model.TotalPages </a>]</p>
+    <a asp-action="Index" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-pageNumber="@(Model.PageIndex + 1)" asp-route-currentFilter="@ViewData["CurrentFilter"]" class="btn btn-default mb-5 @nextDisabled d-inline">Siguiente</a>
+</div>*@
+
 

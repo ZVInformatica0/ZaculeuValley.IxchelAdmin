@@ -11127,23 +11127,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SOPORTE\\.nuget\\packages\\": {},
+    "C:\\Users\\Dev\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SOPORTE\\Documents\\ZV\\ZaculeuValley.IxchelAdmin.csproj",
+      "projectUniqueName": "D:\\ZV\\ZaculeuValley.IxchelAdmin\\ZaculeuValley.IxchelAdmin.csproj",
       "projectName": "ZaculeuValley.IxchelAdmin",
-      "projectPath": "C:\\Users\\SOPORTE\\Documents\\ZV\\ZaculeuValley.IxchelAdmin.csproj",
-      "packagesPath": "C:\\Users\\SOPORTE\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SOPORTE\\Documents\\ZV\\obj\\",
+      "projectPath": "D:\\ZV\\ZaculeuValley.IxchelAdmin\\ZaculeuValley.IxchelAdmin.csproj",
+      "packagesPath": "C:\\Users\\Dev\\.nuget\\packages\\",
+      "outputPath": "D:\\ZV\\ZaculeuValley.IxchelAdmin\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\SOPORTE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dev\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],

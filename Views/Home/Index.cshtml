@@ -3,7 +3,9 @@
 }
 @model List<ControllerListViewModel>
 
-
+@{
+    var excludedControllers = new List<string> { "PermissionRols", "Permissions", "Rols", "Users", "UserRols", "Institutions" };
+}
 
 <div class="text-center mt-5 mb-5">
     <h2>@ViewBag.InstitutionName</h2>
@@ -19,6 +21,18 @@
     <tbody>
         @foreach (var controller in Model.OrderBy(c => GetDisplayOrder(c.DisplayedName)))
         {
+            if (!excludedControllers.Contains(controller.DisplayedName))
+            {
+                <tr>
+                    <td>@GetDisplayName(controller.DisplayedName)</td>
+                    <td><a href="@controller.ApiUrl">Editar</a></td>
+                </tr>
+            }
+        }
+    </tbody>
+   @* <tbody>
+        @foreach (var controller in Model.OrderBy(c => GetDisplayOrder(c.DisplayedName)))
+        {
             @if (controller.DisplayedName != "Institutions") // No incluir "Institutions" 
             {
                 <tr>
@@ -27,7 +41,7 @@
                 </tr>
             }
         }
-    </tbody>
+    </tbody>*@
 </table>
 
 @functions {

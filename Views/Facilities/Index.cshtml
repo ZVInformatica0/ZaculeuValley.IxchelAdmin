@@ -57,21 +57,21 @@
             <th class="text-center">
                 @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"]?.ToString() == "facilitycode_desc")
                 {
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["FacilityCodeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Instalación ↓</a>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["FacilityCodeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código ↓</a>
                 }
                 else
                 {
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["FacilityCodeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código Instalación ↑</a>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["FacilityCodeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Código ↑</a>
                 }
             </th>
             <th class="text-center">
                 @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"]?.ToString() == "idfacilitytype_desc")
                 {
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["IdfacilityTypeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Tipo Instalación ↓</a>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["IdfacilityTypeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Tipo ↓</a>
                 }
                 else
                 {
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["IdfacilityTypeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Tipo Instalación ↑</a>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["IdfacilityTypeParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Tipo ↑</a>
                 }
             </th>
             <th class="text-center">
@@ -176,35 +176,11 @@
     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }
-<div class="">
-    <a asp-action="Index"
-       asp-route-sortOrder="@ViewData["CurrentSort"]"
-       asp-route-pageNumber="@(Model.PageIndex - 1)"
-       asp-route-currentFilter="@ViewData["CurrentFilter"]"
-       class="btn btn-default @prevDisabled">
-        Anterior
-    </a>
-
-    <nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav>
-
-
-    <p class="page-link">
-        [ @Model.PageIndex / @Model.TotalPages ]
-    </p>
-    <a asp-action="Index"
-       asp-route-sortOrder="@ViewData["CurrentSort"]"
-       asp-route-pageNumber="@(Model.PageIndex + 1)"
-       asp-route-currentFilter="@ViewData["CurrentFilter"]"
-       class="btn btn-default mb-5 @nextDisabled">
-        Siguiente
-    </a>
+<div class="float-left mb-lg-5 pb-5 mt-3">
+    <a asp-action="Index" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-pageNumber="@(Model.PageIndex - 1)" asp-route-currentFilter="@ViewData["CurrentFilter"]" class="btn btn-default @prevDisabled d-inline">Anterior</a>
+    <p class="d-inline">[ @Model.PageIndex / <a asp-action="Index" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-pageNumber="@(Model.TotalPages)" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Model.TotalPages </a>]</p>
+    <a asp-action="Index" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-pageNumber="@(Model.PageIndex + 1)" asp-route-currentFilter="@ViewData["CurrentFilter"]" class="btn btn-default mb-5 @nextDisabled d-inline">Siguiente</a>
 </div>
+
+
 

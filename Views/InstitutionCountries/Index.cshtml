@@ -54,11 +54,27 @@
                 @*@Html.DisplayNameFor(model => model.CountryName)*@
             </th>
             <th class="text-center">
-                Prefijo Telefónico
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "phone_desc")
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["PhoneSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Prefijo Telefónico ↓</a>
+                }
+                else
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["PhoneSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Prefijo Telefónico ↑</a>
+                }
+                
                 @*@Html.DisplayNameFor(model => model.CountryPhoneCode)*@
             </th>
             <th class="text-center">
-                Dominio
+                @if (ViewData["CurrentSort"] != null && ViewData["CurrentSort"].ToString() == "domain_desc")
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["DomainSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Dominio ↓</a>
+                }
+                else
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["DomainSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Dominio ↑</a>
+                }
+                
                 @*@Html.DisplayNameFor(model => model.CountryDomainName)*@
             </th>
             <th class="text-center">
@@ -111,7 +127,13 @@
     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }
 
-<a asp-action="Index"
+
+<div class="float-left mb-lg-5 pb-5 mt-3">
+    <a asp-action="Index" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-pageNumber="@(Model.PageIndex - 1)" asp-route-currentFilter="@ViewData["CurrentFilter"]" class="btn btn-default @prevDisabled d-inline">Anterior</a>
+    <p class="d-inline">[ @Model.PageIndex / <a asp-action="Index" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-pageNumber="@(Model.TotalPages)" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Model.TotalPages </a>]</p>
+    <a asp-action="Index" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-pageNumber="@(Model.PageIndex + 1)" asp-route-currentFilter="@ViewData["CurrentFilter"]" class="btn btn-default mb-5 @nextDisabled d-inline">Siguiente</a>
+</div>
+@*<a asp-action="Index"
    asp-route-sortOrder="@ViewData["CurrentSort"]"
    asp-route-pageNumber="@(Model.PageIndex - 1)"
    asp-route-currentFilter="@ViewData["CurrentFilter"]"
@@ -124,4 +146,4 @@
    asp-route-currentFilter="@ViewData["CurrentFilter"]"
    class="btn btn-default @nextDisabled">
     Siguiente
-</a>
+</a>*@
