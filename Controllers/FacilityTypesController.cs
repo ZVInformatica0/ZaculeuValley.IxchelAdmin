@@ -154,7 +154,7 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             {
                 return NotFound();
             }
-            ViewData["Idinstitution"] = new SelectList(_context.Institutions, "Idinstitution", "Idinstitution", facilityType.Idinstitution);
+            ViewData["Idinstitution"] = new SelectList(_context.Institutions, "Idinstitution", "InstitutionName", facilityType.Idinstitution);
             return View(facilityType);
         }
 

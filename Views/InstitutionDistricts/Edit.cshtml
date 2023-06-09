@@ -14,18 +14,13 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="IdinstitutionDistrict" />
             <div class="form-group">
-                <label asp-for="IdinstitutionArea" class="control-label">ID Área</label>
-                <select asp-for="IdinstitutionArea" class="form-control" asp-items="ViewBag.IdinstitutionArea"></select>
-                <span asp-validation-for="IdinstitutionArea" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Idinstitution" class="control-label">ID Institución</label>
                 <select asp-for="Idinstitution" class="form-control" asp-items="ViewBag.Idinstitution"></select>
                 <span asp-validation-for="Idinstitution" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AreaCode" class="control-label">Código Área</label>
-                <input asp-for="AreaCode" class="form-control" />
+                <label asp-for="AreaCode" class="control-label">Área</label>
+                <select asp-for="AreaCode" class="form-control" asp-items="ViewBag.IdinstitutionArea"></select>
                 <span asp-validation-for="AreaCode" class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -258,9 +258,9 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
             {
                 return NotFound();
             }
-            ViewData["Iddistrict"] = new SelectList(_context.InstitutionDistricts, "IdinstitutionDistrict", "IdinstitutionDistrict", facility.Iddistrict);
-            ViewData["IdfacilityType"] = new SelectList(_context.FacilityTypes, "IdfacilityType", "IdfacilityType", facility.IdfacilityType);
-            ViewData["Idinstitution"] = new SelectList(_context.Institutions, "Idinstitution", "Idinstitution", facility.Idinstitution);
+            ViewData["Iddistrict"] = new SelectList(_context.InstitutionDistricts, "IdinstitutionDistrict", "DistrictName", facility.Iddistrict);
+            ViewData["IdfacilityType"] = new SelectList(_context.FacilityTypes, "IdfacilityType", "FacilityTypeName", facility.IdfacilityType);
+            ViewData["Idinstitution"] = new SelectList(_context.Institutions, "Idinstitution", "InstitutionName", facility.Idinstitution);
             return View(facility);
         }
 
@@ -296,7 +296,7 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Iddistrict"] = new SelectList(_context.InstitutionDistricts, "IdinstitutionDistrict", "IdinstitutionDistrict", facility.Iddistrict);
+            ViewData["Iddistrict"] = new SelectList(_context.InstitutionDistricts, "IdinstitutionDistrict", "DistrictName", facility.Iddistrict);
             ViewData["IdfacilityType"] = new SelectList(_context.FacilityTypes, "IdfacilityType", "IdfacilityType", facility.IdfacilityType);
             ViewData["Idinstitution"] = new SelectList(_context.Institutions, "Idinstitution", "Idinstitution", facility.Idinstitution);
             return View(facility);

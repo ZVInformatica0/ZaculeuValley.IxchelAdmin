@@ -21,8 +21,8 @@
                 <select asp-for="Idinstitution" class ="form-control" asp-items="ViewBag.Idinstitution"></select>
             </div>
             <div class="form-group">
-                <label asp-for="AreaCode" class="control-label">Código Área</label>
-                <input asp-for="AreaCode" class="form-control" />
+                <label asp-for="AreaCode" class="control-label">Área</label>
+                <select asp-for="AreaCode" class="form-control" asp-items="ViewBag.IdinstitutionArea"></select>
                 <span asp-validation-for="AreaCode" class="text-danger"></span>
             </div>
             <div class="form-group">

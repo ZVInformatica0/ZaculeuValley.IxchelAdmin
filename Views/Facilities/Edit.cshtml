@@ -14,24 +14,24 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Idfacility" />
             <div class="form-group">
-                <label asp-for="Idinstitution" class="control-label">ID Institución</label>
+                <label asp-for="Idinstitution" class="control-label">Institución</label>
                 <select asp-for="Idinstitution" class="form-control" asp-items="ViewBag.Idinstitution"></select>
                 <span asp-validation-for="Idinstitution" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Iddistrict" class="control-label"></label>
-                <select asp-for="Iddistrict" class="form-control" asp-items="ViewBag.Iddistrict">ID Distrito</select>
+                <label asp-for="Iddistrict" class="control-label">Distrito</label>
+                <select asp-for="Iddistrict" class="form-control" asp-items="ViewBag.Iddistrict"></select>
                 <span asp-validation-for="Iddistrict" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FacilityCode" class="control-label">Código Instalación</label>
-                <input asp-for="FacilityCode" class="form-control" />
-                <span asp-validation-for="FacilityCode" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IdfacilityType" class="control-label">ID Tipo Instalación</label>
                 <select asp-for="IdfacilityType" class="form-control" asp-items="ViewBag.IdfacilityType"></select>
                 <span asp-validation-for="IdfacilityType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FacilityCode" class="control-label">Código Instalación</label>
+                <input asp-for="FacilityCode" class="form-control" />
+                <span asp-validation-for="FacilityCode" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="FacilityName" class="control-label">Nombre Instalación</label>
@@ -43,6 +43,7 @@
                     <input class="form-check-input" asp-for="Enabled" /> Hábilitado
                 </label>
                 <span asp-validation-for="Enabled" class="text-danger"></span>
+                
             </div>
             @*<div class="form-group form-check">
                 <label class="form-check-label">
@@ -50,16 +51,7 @@
                 </label>
                 <span asp-validation-for="Deleted" class="text-danger"></span>
             </div>*@
-            <div class="form-group">
-                <label asp-for="AreaCode" class="control-label">Código Área</label>
-                <input asp-for="AreaCode" class="form-control" />
-                <span asp-validation-for="AreaCode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DistrictCode" class="control-label">Código Distrito</label>
-                <input asp-for="DistrictCode" class="form-control" />
-                <span asp-validation-for="DistrictCode" class="text-danger"></span>
-            </div>
+            
             <div class="form-group">
                 <input type="submit" class="btn btn-success" value="Guardar" />
             </div>
