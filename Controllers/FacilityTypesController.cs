@@ -74,16 +74,19 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     facilitytypes = facilitytypes.OrderByDescending(i => i.FacilityTypeName);
                     break;
                 case "Id":
-                    facilitytypes = facilitytypes.OrderBy(i => i.IdfacilityType);
+                    facilitytypes = facilitytypes.OrderBy(i => i.FacilityTypeCode);
                     break;
                 case "id_desc":
-                    facilitytypes = facilitytypes.OrderByDescending(i => i.Idinstitution);
+                    facilitytypes = facilitytypes.OrderByDescending(i => i.FacilityTypeCode);
                     break;
                 case "Enabled":
                     facilitytypes = facilitytypes.OrderBy(i => i.Enabled);
                     break;
+                case "enabled_desc":
+                    facilitytypes = facilitytypes.OrderByDescending(i => i.Enabled);
+                    break;
                 default:
-                    facilitytypes = facilitytypes.OrderBy(i => i.IdfacilityType);
+                    facilitytypes = facilitytypes.OrderBy(i => i.FacilityTypeName);
                     break;
             }
 

@@ -44,16 +44,7 @@
                     <input class="form-check-input" asp-for="Deleted" /> Borrado
                 </label>
             </div>*@
-            <div class="form-group">
-                <label asp-for="AreaCode" class="control-label">Código Interno de el Área</label>
-                <input asp-for="AreaCode" class="form-control" />
-                <span asp-validation-for="AreaCode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DistrictCode" class="control-label">Código Interno de el Distrito </label>
-                <input asp-for="DistrictCode" class="form-control" />
-                <span asp-validation-for="DistrictCode" class="text-danger"></span>
-            </div>
+            
             <div class="form-group">
                 <input type="submit" value="Crear" class="btn btn-primary" />
             </div>
@@ -61,7 +52,7 @@
     </div>
 </div>
 
-<div>
+<div class="mb-5">
     <a asp-action="Index">Regresar a Índice</a>
 </div>
 

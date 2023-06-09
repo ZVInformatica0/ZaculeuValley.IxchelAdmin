@@ -226,6 +226,13 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Idfacility,Idinstitution,Iddistrict,FacilityCode,IdfacilityType,FacilityName,Enabled,Deleted,AreaCode,DistrictCode")] Facility facility)
         {
+            // Comprueba si el código de instalación ya existe en la base de datos
+            bool isFacilityCodeUnique = await _context.Facilities.AllAsync(f => f.FacilityCode != facility.FacilityCode);
+
+            if (!isFacilityCodeUnique)
+            {
+                ModelState.AddModelError("FacilityCode", "El código de instalación ya existe. Por favor, ingrese un código único.");
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(facility);
