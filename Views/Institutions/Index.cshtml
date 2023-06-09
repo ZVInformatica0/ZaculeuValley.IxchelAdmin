@@ -11,13 +11,21 @@
     ViewData["Title"] = "Index";
 }
 
-    <h1 class="text-center mt-5| mb-3">Instituciones</h1>
+    <h1 class="text-center mt-5 mb-3">Instituciones</h1>
 
 @{
     var request = Context.Request;
     var searchString = request.Query["SearchString"].ToString();
 
-    var showTable = !string.IsNullOrEmpty(searchString?.Trim());
+
+    var showTable = !string.IsNullOrEmpty(searchString?.Trim()) || !string.IsNullOrEmpty(ViewData["CurrentFilter"]?.ToString());
+    var showAllData = !string.IsNullOrEmpty(searchString?.Trim()) || request.Method == "GET";
+
+    if (request.Method == "GET" && string.IsNullOrEmpty(searchString?.Trim()))
+    {
+        showTable = false;
+    }
+    //var showTable = !string.IsNullOrEmpty(searchString?.Trim());
 
 }
 
@@ -32,7 +40,7 @@
 }
 
 <form asp-action="Index" method="get">
-    <div class="containerInstitutionSearch no-color">
+    <div class="containerInstitutionSearch no-color mt-2">
         <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
 
         @*boton para el metodo de busqueda*@
@@ -63,9 +71,9 @@
 
 
 
-@if (showTable @*|| string.IsNullOrEmpty(ViewData["CurrentFilter"]?.ToString())*@)
+@if (showTable || showAllData)
 {
-    <table class="table mt-3">
+    <table class="table mt-5">
         <thead>
             <tr>
                 <th>

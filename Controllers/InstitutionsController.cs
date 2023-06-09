@@ -81,7 +81,7 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     institutions = institutions.OrderByDescending(i => i.InstitutionCode);
                     break;
                 default:
-                    institutions = institutions.OrderBy(i => i.InstitutionName);
+                    institutions = institutions.OrderBy(i => i.Idinstitution);
                     break;
             }
 
