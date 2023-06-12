@@ -62,7 +62,7 @@ public partial class Facility
     /// </summary>
     public string? DistrictCode { get; set; }
 
-    public virtual InstitutionDistrict IddistrictNavigation { get; set; } = null!;
+    public virtual InstitutionDistrict? IddistrictNavigation { get; set; } = null!;
 
     public virtual FacilityType? IdfacilityTypeNavigation { get; set; }
 

@@ -44,5 +44,5 @@ public partial class FacilityType
 
     public virtual ICollection<Facility> Facilities { get; set; } = new List<Facility>();
 
-    public virtual Institution IdinstitutionNavigation { get; set; } = null!;
+    public virtual Institution? IdinstitutionNavigation { get; set; } = null!;
 }

@@ -41,7 +41,7 @@ public partial class InstitutionArea
 
     public bool Deleted { get; set; }
 
-    public virtual InstitutionCountry IdinstitutionCountryNavigation { get; set; } = null!;
+    public virtual InstitutionCountry? IdinstitutionCountryNavigation { get; set; } = null!;
 
     public virtual Institution? IdinstitutionNavigation { get; set; }
 

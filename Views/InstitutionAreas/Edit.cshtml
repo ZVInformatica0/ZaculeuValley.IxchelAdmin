@@ -4,6 +4,21 @@
     ViewData["Title"] = "Edit";
 }
 
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var modelState in ViewData.ModelState.Values)
+            {
+                foreach (var error in modelState.Errors)
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            }
+        </ul>
+    </div>
+}
+
 <h1>Edit</h1>
 
 <h4>Área</h4>
@@ -12,9 +27,9 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="IdinstitutionArea" />
+            <input type="hidden" asp-for="IdinstitutionArea" value="@Model.IdinstitutionArea" />
             <div class="form-group">
-                <label asp-for="Idinstitution" class="control-label">ID Institución</label>
+                <label asp-for="Idinstitution" class="control-label">Institución</label>
                 <select asp-for="Idinstitution" class="form-control" asp-items="ViewBag.Idinstitution"></select>
                 <span asp-validation-for="Idinstitution" class="text-danger"></span>
             </div>

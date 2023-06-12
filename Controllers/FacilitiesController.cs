@@ -253,11 +253,19 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                 return NotFound();
             }
 
-            var facility = await _context.Facilities.FindAsync(id);
+            //Query para que el edit jale todas las variables del modelo de Facility
+            var facility = await _context.Facilities
+                .Include(f => f.IdinstitutionNavigation)
+                .Include(f => f.IddistrictNavigation)
+                .Include(f => f.IdfacilityTypeNavigation)
+                .FirstOrDefaultAsync(m => m.Idfacility == id);
+
             if (facility == null)
             {
                 return NotFound();
             }
+
+
             ViewData["Iddistrict"] = new SelectList(_context.InstitutionDistricts, "IdinstitutionDistrict", "DistrictName", facility.Iddistrict);
             ViewData["IdfacilityType"] = new SelectList(_context.FacilityTypes, "IdfacilityType", "FacilityTypeName", facility.IdfacilityType);
             ViewData["Idinstitution"] = new SelectList(_context.Institutions, "Idinstitution", "InstitutionName", facility.Idinstitution);
@@ -296,11 +304,13 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Iddistrict"] = new SelectList(_context.InstitutionDistricts, "IdinstitutionDistrict", "DistrictName", facility.Iddistrict);
+
+            ViewData["Iddistrict"] = new SelectList(_context.InstitutionDistricts, "IdinstitutionDistrict", "IdinstitutionDistrict", facility.Iddistrict);
             ViewData["IdfacilityType"] = new SelectList(_context.FacilityTypes, "IdfacilityType", "IdfacilityType", facility.IdfacilityType);
             ViewData["Idinstitution"] = new SelectList(_context.Institutions, "Idinstitution", "Idinstitution", facility.Idinstitution);
             return View(facility);
         }
+
 
         // GET: Facilities/Delete/5
         public async Task<IActionResult> Delete(int? id)
