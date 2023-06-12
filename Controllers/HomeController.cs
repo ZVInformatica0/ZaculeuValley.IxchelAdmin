@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Reflection;
 using System.Security.Cryptography.Xml;
+using ZaculeuValley.IxchelAdmin.Data;
 using ZaculeuValley.IxchelAdmin.Models;
 
 namespace ZaculeuValley.IxchelAdmin.Controllers

@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using ZaculeuValley.IxchelAdmin.Areas.Identity.Data;
 using ZaculeuValley.IxchelAdmin.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 
-namespace ZaculeuValley.IxchelAdmin.Models;
+namespace ZaculeuValley.IxchelAdmin.Data;
+
 
 public partial class IxchelWebpruebasContext : DbContext
 {
@@ -380,5 +384,15 @@ public partial class IxchelWebpruebasContext : DbContext
         OnModelCreatingPartial(modelBuilder);
     }
 
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+        // Customize the ASP.NET Identity model and override the defaults if needed.
+        // For example, you can rename the ASP.NET Identity table names and more.
+        // Add your customizations after calling base.OnModelCreating(builder);
+    }
+
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+
 }

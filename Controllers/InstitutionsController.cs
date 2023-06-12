@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using ZaculeuValley.IxchelAdmin.Models;
 using PagedList;
 using Microsoft.AspNetCore.Http;
+using ZaculeuValley.IxchelAdmin.Data;
 
 namespace ZaculeuValley.IxchelAdmin.Controllers
 {

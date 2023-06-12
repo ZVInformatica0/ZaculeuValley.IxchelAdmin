@@ -1,9 +1,9 @@
 ﻿<!doctype html>
 
-@{
+@*@{
     var isHomePage = ViewContext.RouteData.Values["controller"].ToString().Equals("Home", StringComparison.OrdinalIgnoreCase)
                      && ViewContext.RouteData.Values["action"].ToString().Equals("Index", StringComparison.OrdinalIgnoreCase);
-}
+}*@
 
 <html lang="en">
 <head>
@@ -63,7 +63,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <div id="sidebar" class="@(!isHomePage ? "enabled" : "disabled")">
+        @*<div id="sidebar" class="@(!isHomePage ? "enabled" : "disabled")">*@
             <!-- Sidebar content -->
        
             <div id="sidebar-wrapper">
@@ -103,14 +103,14 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        @*</div>*@
         <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-                <div id="sidebar" class="@(!isHomePage ? "enabled" : "disabled")">
+                @*<div id="sidebar" class="@(!isHomePage ? "enabled" : "disabled")">
                     <a href="#menu-toggle" class="btn btn-primary" id="menu-toggle">Menú</a>
-                </div>
+                </div>*@
                 <div class="container">
                     <main role="main" class="pb-3">
                         @RenderBody()

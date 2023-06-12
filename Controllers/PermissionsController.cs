@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using ZaculeuValley.IxchelAdmin.Data;
 using ZaculeuValley.IxchelAdmin.Models;
 
 namespace ZaculeuValley.IxchelAdmin.Controllers

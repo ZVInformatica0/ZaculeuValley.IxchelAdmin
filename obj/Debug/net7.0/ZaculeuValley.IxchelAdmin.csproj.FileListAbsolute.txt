@@ -1104,3 +1104,12 @@ C:\Users\SOPORTE\Documents\ZV\obj\Debug\net7.0\refint\ZaculeuValley.IxchelAdmin.
 C:\Users\SOPORTE\Documents\ZV\obj\Debug\net7.0\ZaculeuValley.IxchelAdmin.pdb
 C:\Users\SOPORTE\Documents\ZV\obj\Debug\net7.0\ZaculeuValley.IxchelAdmin.genruntimeconfig.cache
 C:\Users\SOPORTE\Documents\ZV\obj\Debug\net7.0\ref\ZaculeuValley.IxchelAdmin.dll
+C:\Users\SOPORTE\Documents\ZV\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\SOPORTE\Documents\ZV\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\SOPORTE\Documents\ZV\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\SOPORTE\Documents\ZV\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\SOPORTE\Documents\ZV\bin\Debug\net7.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\SOPORTE\Documents\ZV\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\SOPORTE\Documents\ZV\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\SOPORTE\Documents\ZV\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+C:\Users\SOPORTE\Documents\ZV\obj\Debug\net7.0\ZaculeuValley.IxchelAdmin.MvcApplicationPartsAssemblyInfo.cs
