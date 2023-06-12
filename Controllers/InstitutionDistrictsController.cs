@@ -199,8 +199,8 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdinstitutionArea"] = new SelectList(_context.InstitutionAreas, "IdinstitutionArea", "IdinstitutionArea", institutionDistrict.IdinstitutionArea);
-            ViewData["Idinstitution"] = new SelectList(_context.Institutions, "Idinstitution", "Idinstitution", institutionDistrict.Idinstitution);
+            ViewData["IdinstitutionArea"] = new SelectList(_context.InstitutionAreas, "IdinstitutionArea", "AreaName", institutionDistrict.IdinstitutionArea);
+            ViewData["Idinstitution"] = new SelectList(_context.Institutions, "Idinstitution", "InstitutionName", institutionDistrict.Idinstitution);
             return View(institutionDistrict);
         }
 
