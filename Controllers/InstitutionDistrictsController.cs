@@ -90,9 +90,13 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     districts = districts.OrderBy(i => i.DistrictName);
                     break;
             }
-            
 
-            int pageSize = 5;
+
+            int pageSize = 5; // Default page size
+            if (Request.Query.ContainsKey("pageSize") && int.TryParse(Request.Query["pageSize"], out int parsedPageSize))
+            {
+                pageSize = parsedPageSize;
+            }
             var pagedInstitutionDistricts = await PaginatedList<InstitutionDistrict>.CreateAsync(districts, pageNumber ?? 1, pageSize);
             return View(pagedInstitutionDistricts);
         }

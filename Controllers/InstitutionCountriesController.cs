@@ -86,8 +86,12 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     countries = countries.OrderBy(i => i.CountryName);
                     break;
             }
-            
-            int pageSize = 5;
+
+            int pageSize = 5; // Default page size
+            if (Request.Query.ContainsKey("pageSize") && int.TryParse(Request.Query["pageSize"], out int parsedPageSize))
+            {
+                pageSize = parsedPageSize;
+            }
             var pagedInstitutionCountries = await PaginatedList<InstitutionCountry>.CreateAsync(countries, pageNumber ?? 1, pageSize);
 
             return View(pagedInstitutionCountries);

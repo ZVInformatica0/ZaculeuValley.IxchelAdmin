@@ -181,7 +181,11 @@ namespace ZaculeuValley.IxchelAdmin.Controllers
                     break;
             }
 
-            int pageSize = 5;
+            int pageSize = 5; // Default page size
+            if (Request.Query.ContainsKey("pageSize") && int.TryParse(Request.Query["pageSize"], out int parsedPageSize))
+            {
+                pageSize = parsedPageSize;
+            }
             var pagedFacilities = await PaginatedList<Facility>.CreateAsync(facilities, pageNumber ?? 1, pageSize);
 
             return View(pagedFacilities);
